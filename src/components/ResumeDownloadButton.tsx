@@ -22,13 +22,13 @@ export default function ResumeDownloadButton({
     // Create an invisible HTML anchor tag
     const link = document.createElement('a');
     
-    // Set the path to match the exact files in your public folder
+    // Set the path to match the exact files in the public folder
     if (selected === 'aiml') {
-      link.href = '/nikita_aiml_resume.pdf';
-      link.download = 'nikita_aiml_resume.pdf';
+      link.href = '/Nikita_Bhansali_Resume.pdf';
+      link.download = 'Nikita_Bhansali_Resume.pdf';
     } else {
-      link.href = '/Nikita_ECE_Resume.pdf';
-      link.download = 'Nikita_ECE_Resume.pdf';
+      link.href = '/Nikita_Bhansali_Resume_Embedded_RF.pdf';
+      link.download = 'Nikita_Bhansali_Resume_Embedded_RF.pdf';
     }
     
     // Append to body, click to trigger download, and remove

@@ -41,13 +41,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
   const isDark = theme === 'dark';
   const isAiml = resumeType === 'aiml';
 
-  const resumePath = isAiml ? '/nikita_aiml_resume.pdf' : '/Nikita_ECE_Resume.pdf';
-  const fileName = isAiml ? 'nikita_aiml_resume.pdf' : 'Nikita_ECE_Resume.pdf';
+  // Exact file paths pulling from the public folder
+  const fileName = isAiml ? 'Nikita_Bhansali_Resume.pdf' : 'Nikita_Bhansali_Resume_Embedded_RF.pdf';
+  const filePath = isAiml ? '/Nikita_Bhansali_Resume.pdf' : '/Nikita_Bhansali_Resume_Embedded_RF.pdf';
 
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
     const link = document.createElement('a');
-    link.href = resumePath;
+    link.href = filePath;
     link.download = fileName;
     document.body.appendChild(link);
     link.click();
@@ -56,7 +57,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
 
   const handlePrint = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open(resumePath, '_blank', 'noopener,noreferrer');
+    window.open(filePath, '_blank', 'noopener,noreferrer');
   };
 
   return (

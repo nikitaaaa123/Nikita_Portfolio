@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ThemeMode } from '../types';
+import { ProfileImage } from './ProfileImage';
 
 interface AboutProps {
   theme: ThemeMode;
@@ -54,23 +55,33 @@ export const About: React.FC<AboutProps> = ({ theme }) => {
               ? 'bg-[#0e1420]/80 border-slate-800/90 shadow-xl shadow-black/20' 
               : 'bg-white border-slate-200 shadow-md shadow-slate-100'
           }`}>
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <span className={`p-2 rounded-xl border ${
-                  isDark ? 'bg-blue-950/50 border-blue-800/60 text-blue-400' : 'bg-blue-50 border-blue-200 text-blue-600 shadow-sm'
-                }`}>
-                  <Brain className="w-5 h-5" />
-                </span>
-                <span className={`p-2 rounded-xl border ${
-                  isDark ? 'bg-emerald-950/50 border-emerald-800/60 text-emerald-400' : 'bg-emerald-50 border-emerald-200 text-emerald-600 shadow-sm'
-                }`}>
-                  <Radio className="w-5 h-5" />
-                </span>
-                <span className={`font-mono text-xs font-semibold tracking-wider uppercase ml-1 ${
-                  isDark ? 'text-slate-400' : 'text-slate-600'
-                }`}>
-                  Cross-Disciplinary Profile
-                </span>
+            <div className="space-y-5">
+              {/* Header with Photo and Specialization Badges */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-slate-800/40">
+                <div className="flex items-center gap-4">
+                  <ProfileImage size="md" showBadge={false} />
+                  <div>
+                    <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                      Nikita Bhansali
+                    </h3>
+                    <p className="text-xs font-mono text-blue-400">
+                      B.Tech ECE · AI/ML & Embedded Systems
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className={`p-2 rounded-xl border ${
+                    isDark ? 'bg-blue-950/50 border-blue-800/60 text-blue-400' : 'bg-blue-50 border-blue-200 text-blue-600 shadow-sm'
+                  }`}>
+                    <Brain className="w-4 h-4" />
+                  </span>
+                  <span className={`p-2 rounded-xl border ${
+                    isDark ? 'bg-emerald-950/50 border-emerald-800/60 text-emerald-400' : 'bg-emerald-50 border-emerald-200 text-emerald-600 shadow-sm'
+                  }`}>
+                    <Radio className="w-4 h-4" />
+                  </span>
+                </div>
               </div>
 
               <p className={`text-base sm:text-lg leading-relaxed ${

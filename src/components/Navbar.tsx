@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { ThemeMode } from '../types';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ProfileImage } from './ProfileImage';
 
 interface NavbarProps {
   theme: ThemeMode;
@@ -98,14 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           id="navbar-brand-logo"
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <div className={`relative w-10 h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm tracking-tighter transition-all duration-300 shadow-sm ${
-            isDark 
-              ? 'bg-gradient-to-br from-blue-600/30 to-violet-600/30 border border-blue-500/40 text-blue-400 group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.35)]' 
-              : 'bg-blue-50 border border-blue-200 text-blue-700 group-hover:border-blue-400 group-hover:shadow-md'
-          }`}>
-            <span>NB</span>
-            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#0a0e14] animate-pulse" title="Systems Active" />
-          </div>
+          <ProfileImage size="sm" showBadge={true} className="flex-shrink-0" />
           <div className="flex flex-col">
             <span className={`font-semibold tracking-tight text-base sm:text-lg leading-tight transition-colors ${
               isDark ? 'text-slate-100 group-hover:text-blue-400' : 'text-slate-900 group-hover:text-blue-600'
