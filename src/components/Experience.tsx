@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { 
   Building2, 
   Calendar, 
@@ -9,7 +10,9 @@ import {
   Brain,
   Code2,
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  Zap,
+  Layers
 } from 'lucide-react';
 import { EXPERIENCES } from '../data/portfolioData';
 import { ThemeMode } from '../types';
@@ -24,17 +27,23 @@ export const Experience: React.FC<ExperienceProps> = ({ theme }) => {
   return (
     <section 
       id="experience" 
-      className={`py-20 sm:py-24 border-t transition-colors ${
+      className={`py-20 sm:py-24 border-t transition-colors scroll-mt-16 sm:scroll-mt-20 ${
         isDark ? 'bg-[#0a0e14] border-slate-800/80' : 'bg-slate-50/70 border-slate-200'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-12 sm:mb-16">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-70px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-start mb-12 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-500 font-semibold uppercase tracking-wider mb-2">
             <span className="w-6 h-px bg-blue-500"></span>
-            <span>03 // PROFESSIONAL EXPERIENCE</span>
+            <span>04 // PROFESSIONAL EXPERIENCE</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
             isDark ? 'text-slate-100' : 'text-slate-900'
@@ -46,19 +55,26 @@ export const Experience: React.FC<ExperienceProps> = ({ theme }) => {
           }`}>
             Applied machine learning, deep neural networks, and production-grade full-stack delivery in enterprise public sector environments.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Timeline Container */}
+        {/* Timeline Container with Animated Entries */}
         <div className="relative border-l-2 border-blue-500/40 ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-12">
           {EXPERIENCES.map((exp, idx) => {
             const isAiml = exp.id === 'aiml-intern-mponline';
 
             return (
-              <div key={exp.id} className="relative group">
+              <motion.div 
+                key={exp.id}
+                initial={{ opacity: 0, x: -25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group"
+              >
                 
-                {/* Timeline Marker Dot - Mathematically Centered on the 2px border */}
+                {/* Timeline Marker Dot - Centered on 2px border */}
                 <div 
-                  className={`absolute -left-[35px] sm:-left-[51px] top-6 w-6 h-6 rounded-full border-2 border-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-110 transition-transform ${
+                  className={`absolute -left-[35px] sm:-left-[51px] top-6 w-6 h-6 rounded-full border-2 border-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-125 transition-transform ${
                     isDark ? 'bg-[#0a0e14]' : 'bg-white'
                   }`}
                 >
@@ -66,10 +82,10 @@ export const Experience: React.FC<ExperienceProps> = ({ theme }) => {
                 </div>
 
                 {/* Main Card */}
-                <div className={`rounded-2xl border p-6 sm:p-8 transition-all duration-300 hover:shadow-xl ${
+                <div className={`rounded-2xl border p-6 sm:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
                   isDark 
-                    ? 'bg-[#0e1420]/90 border-slate-800/90 hover:border-slate-700/90 shadow-black/30' 
-                    : 'bg-white border-slate-200/90 hover:border-slate-300 shadow-md shadow-slate-200/50'
+                    ? 'bg-[#0e1420]/90 border-slate-800/90 hover:border-blue-500/40 shadow-black/30' 
+                    : 'bg-white border-slate-200/90 hover:border-blue-400 shadow-md shadow-slate-200/50'
                 }`}>
                   
                   {/* Header Row */}
@@ -134,83 +150,52 @@ export const Experience: React.FC<ExperienceProps> = ({ theme }) => {
                     {exp.summary}
                   </p>
 
-                  {/* Responsibilities & Achievements */}
+                  {/* Responsibilities & Achievements with Interactive Bullets */}
                   <div className="space-y-3 pt-2">
                     <h4 className={`font-mono text-xs uppercase tracking-wider font-semibold flex items-center gap-1.5 ${
                       isDark ? 'text-slate-400' : 'text-slate-600'
                     }`}>
-                      <GitBranch className="w-3.5 h-3.5 text-blue-500" />
-                      <span>Key Engineering Deliverables & Scope:</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
+                      Key Deliverables & Architectural Impact:
                     </h4>
-                    
-                    <div className="grid grid-cols-1 gap-2.5">
-                      {exp.bullets.map((bullet, bIdx) => (
-                        <div 
-                          key={bIdx}
-                          className={`p-3.5 rounded-xl border flex items-start gap-3 transition-all ${
-                            isDark 
-                              ? 'bg-slate-900/50 border-slate-800/80 hover:border-slate-700' 
-                              : 'bg-slate-50 border-slate-200/90 hover:border-slate-300'
+                    <ul className="space-y-2.5">
+                      {exp.bullets.map((point, pIdx) => (
+                        <motion.li 
+                          key={pIdx}
+                          whileHover={{ x: 3 }}
+                          className={`text-xs sm:text-sm flex items-start gap-2.5 leading-relaxed p-2 rounded-lg transition-colors ${
+                            isDark ? 'hover:bg-slate-800/40 text-slate-300' : 'hover:bg-slate-50 text-slate-700'
                           }`}
                         >
-                          <div className={`p-1 rounded-md mt-0.5 shrink-0 ${
-                            isAiml ? 'bg-violet-500/10 text-violet-500' : 'bg-blue-500/10 text-blue-500'
-                          }`}>
-                            <CheckCircle2 className="w-4 h-4" />
-                          </div>
-                          <p className={`text-xs sm:text-sm leading-relaxed ${
-                            isDark ? 'text-slate-300' : 'text-slate-700'
-                          }`}>
-                            {bullet}
-                          </p>
-                        </div>
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                          <span>{point}</span>
+                        </motion.li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
 
-                  {/* Tech Stack Pills & Verified Documentation Link */}
-                  <div className={`pt-5 mt-6 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
-                    isDark ? 'border-slate-800/80' : 'border-slate-200'
+                  {/* Tech Stack Pills */}
+                  <div className={`mt-6 pt-4 border-t flex flex-wrap items-center gap-2 ${
+                    isDark ? 'border-slate-800' : 'border-slate-100'
                   }`}>
-                    <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="font-mono text-xs text-slate-400 mr-1">Stack:</span>
-                      {exp.technologies.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className={`text-xs font-mono px-2.5 py-1 rounded-md border ${
-                            isDark 
-                              ? 'bg-slate-900 border-slate-700/80 text-blue-300' 
-                              : 'bg-blue-50 border-blue-200 text-blue-800'
-                          }`}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* LinkedIn Verification Link */}
-                    {exp.link && (
-                      <a
-                        href={exp.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`px-3.5 py-1.5 rounded-xl border text-xs font-mono flex items-center justify-center gap-1.5 transition-all shrink-0 ${
-                          isDark
-                            ? 'bg-blue-950/40 border-blue-800/60 text-blue-300 hover:bg-blue-900/60 hover:text-white'
-                            : 'bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100 hover:text-blue-900 shadow-sm'
+                    <span className="text-xs font-mono text-slate-500 mr-2">Technologies Used:</span>
+                    {exp.technologies.map((tech, tIdx) => (
+                      <motion.span
+                        key={tIdx}
+                        whileHover={{ scale: 1.05 }}
+                        className={`text-xs font-mono px-2.5 py-1 rounded-lg border transition-colors cursor-default ${
+                          isDark 
+                            ? 'bg-slate-900 border-slate-800 text-slate-300 hover:border-blue-500/40' 
+                            : 'bg-slate-100 border-slate-200 text-slate-700 hover:border-blue-400'
                         }`}
-                        title="View Verified Internship Post on LinkedIn"
                       >
-                        <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
-                        <span>View Verified Post</span>
-                        <ExternalLink className="w-3 h-3 ml-0.5" />
-                      </a>
-                    )}
+                        {tech}
+                      </motion.span>
+                    ))}
                   </div>
 
                 </div>
-
-              </div>
+              </motion.div>
             );
           })}
         </div>

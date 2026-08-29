@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { 
   Code2, 
   GitFork, 
@@ -64,17 +65,23 @@ export const Extracurricular: React.FC<ExtracurricularProps> = ({ theme }) => {
   return (
     <section 
       id="extracurricular" 
-      className={`py-20 sm:py-24 border-t transition-colors ${
+      className={`py-20 sm:py-24 border-t transition-colors scroll-mt-16 sm:scroll-mt-20 ${
         isDark ? 'bg-[#0a0e14] border-slate-800/80' : 'bg-white border-slate-200'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-12 sm:mb-16">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-70px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-start mb-12 sm:mb-16"
+        >
           <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-500 font-semibold uppercase tracking-wider mb-2">
             <span className="w-6 h-px bg-blue-500"></span>
-            <span>06 // BEYOND THE RESUME</span>
+            <span>07 // BEYOND THE RESUME</span>
           </div>
           <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
             isDark ? 'text-slate-100' : 'text-slate-900'
@@ -86,15 +93,20 @@ export const Extracurricular: React.FC<ExtracurricularProps> = ({ theme }) => {
           }`}>
             Consistent problem solving, open-source engagement, NSS camp hospitality leadership, and continuous language proficiency.
           </p>
-        </div>
+        </motion.div>
 
         {/* 4-Item Balanced 2x2 Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {EXTRACURRICULARS.map((item) => (
-            <div
+          {EXTRACURRICULARS.map((item, idx) => (
+            <motion.div
               key={item.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -5, scale: 1.01 }}
               id={`extracurricular-card-${item.id}`}
-              className={`rounded-2xl border p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+              className={`rounded-2xl border p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl ${
                 isDark 
                   ? 'bg-[#0e1420]/80 border-slate-800/90 hover:border-slate-700/90 shadow-sm' 
                   : 'bg-white border-slate-200 hover:border-slate-300 shadow-md shadow-slate-200/50'
@@ -127,7 +139,7 @@ export const Extracurricular: React.FC<ExtracurricularProps> = ({ theme }) => {
                       ? 'bg-amber-500/10 text-amber-300 border-amber-500/30' 
                       : 'bg-amber-50 text-amber-700 border-amber-200'
                   }`}>
-                    <Flame className="w-3.5 h-3.5 text-amber-500" />
+                    <Flame className="w-3.5 h-3.5 text-amber-500 animate-bounce" />
                     {item.metric}
                   </span>
                 </div>
@@ -139,17 +151,13 @@ export const Extracurricular: React.FC<ExtracurricularProps> = ({ theme }) => {
                   {item.description}
                 </p>
 
-                {/* Tag Chips */}
-                <div className={`flex flex-wrap gap-1.5 pt-3 border-t ${
-                  isDark ? 'border-slate-800' : 'border-slate-100'
-                }`}>
-                  {item.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className={`text-[11px] font-mono px-2.5 py-1 rounded-md border ${
-                        isDark 
-                          ? 'bg-slate-900/90 border-slate-800 text-slate-300' 
-                          : 'bg-slate-50 border-slate-200 text-slate-700'
+                {/* Tags List */}
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {item.tags.map((tag, tIdx) => (
+                    <span 
+                      key={tIdx} 
+                      className={`text-xs font-mono px-2 py-0.5 rounded border ${
+                        isDark ? 'bg-slate-900/80 border-slate-800 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'
                       }`}
                     >
                       {tag}
@@ -158,24 +166,25 @@ export const Extracurricular: React.FC<ExtracurricularProps> = ({ theme }) => {
                 </div>
               </div>
 
-              {/* Footer item link */}
+              {/* Action link if available */}
               {item.link && (
-                <div className={`mt-6 pt-3.5 border-t flex items-center justify-between text-xs font-mono ${
-                  isDark ? 'border-slate-800 text-blue-400' : 'border-slate-100 text-blue-600'
+                <div className={`pt-4 border-t flex items-center justify-between ${
+                  isDark ? 'border-slate-800' : 'border-slate-100'
                 }`}>
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-1.5 hover:underline font-medium"
+                    className={`inline-flex items-center gap-1.5 text-xs font-mono font-medium transition-all group ${
+                      isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'
+                    }`}
                   >
-                    <span>View Activity & Profile</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>View Profile & Badges</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </a>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 

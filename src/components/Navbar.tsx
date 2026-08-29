@@ -21,52 +21,31 @@ interface NavbarProps {
   theme: ThemeMode;
   onToggleTheme: () => void;
   onOpenResumeModal: (type: 'aiml' | 'embedded') => void;
+  activeSectionIndex?: number;
+  onSelectSection?: (index: number) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   theme, 
   onToggleTheme, 
-  onOpenResumeModal 
+  onOpenResumeModal,
+  activeSectionIndex = 0,
+  onSelectSection,
 }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isResumeDropdownOpen, setIsResumeDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navLinks = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
-    { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Certifications', href: '#certifications', id: 'certifications' },
-    { name: 'Beyond', href: '#extracurricular', id: 'extracurricular' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
+    { name: 'Home', href: '#home', id: 'home', index: 0 },
+    { name: 'About', href: '#about', id: 'about', index: 1 },
+    { name: 'Skills', href: '#skills', id: 'skills', index: 2 },
+    { name: 'Experience', href: '#experience', id: 'experience', index: 3 },
+    { name: 'Projects', href: '#projects', id: 'projects', index: 4 },
+    { name: 'Certifications', href: '#certifications', id: 'certifications', index: 5 },
+    { name: 'Beyond', href: '#extracurricular', id: 'extracurricular', index: 6 },
+    { name: 'Contact', href: '#contact', id: 'contact', index: 7 },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      const sections = navLinks.map(link => link.id);
-      const scrollPosition = window.scrollY + 120;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const top = section.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sections[i]);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -79,25 +58,30 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const handleLinkClick = (e: React.MouseEvent, index: number) => {
+    if (onSelectSection) {
+      e.preventDefault();
+      onSelectSection(index);
+    }
+  };
+
   const isDark = theme === 'dark';
 
   return (
     <header 
       id="main-navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? isDark 
-            ? 'bg-[#0a0e14]/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20' 
-            : 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 shadow-md shadow-slate-200/40'
-          : 'bg-transparent'
+        isDark 
+          ? 'bg-[#0a0e14]/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20' 
+          : 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 shadow-md shadow-slate-200/40'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Brand Monogram */}
-        <a 
-          href="#home" 
+        <button 
+          onClick={(e) => handleLinkClick(e, 0)}
           id="navbar-brand-logo"
-          className="flex items-center gap-3 group focus:outline-none"
+          className="flex items-center gap-3 group focus:outline-none cursor-pointer text-left"
         >
           <ProfileImage size="sm" showBadge={true} className="flex-shrink-0" />
           <div className="flex flex-col">
@@ -111,22 +95,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               AI/ML × RF/Embedded
             </span>
           </div>
-        </a>
+        </button>
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Desktop Navigation">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = activeSectionIndex === link.index;
             return (
-              <a
+              <button
                 key={link.id}
-                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.index)}
                 id={`nav-link-${link.id}`}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                   isActive
                     ? isDark
-                      ? 'text-blue-400 bg-blue-500/10'
-                      : 'text-blue-600 bg-blue-50'
+                      ? 'text-blue-400 bg-blue-500/10 font-semibold'
+                      : 'text-blue-600 bg-blue-50 font-semibold'
                     : isDark
                     ? 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -136,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {isActive && (
                   <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full" />
                 )}
-              </a>
+              </button>
             );
           })}
         </nav>
@@ -148,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="navbar-resume-btn"
               onClick={() => setIsResumeDropdownOpen(!isResumeDropdownOpen)}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 border ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 border cursor-pointer ${
                 isDark
                   ? 'bg-slate-900/90 hover:bg-slate-800 text-slate-200 border-slate-700/80 hover:border-blue-500/50'
                   : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-300 hover:border-blue-400 shadow-sm'
@@ -172,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }`}
               >
                 <div className="px-2.5 py-1.5 border-b border-slate-700/50 mb-1.5 flex items-center justify-between">
-                  <p className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400">
+                  <p className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400">
                     Select Specialization
                   </p>
                   <span className="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
@@ -249,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="theme-toggle-btn"
             onClick={onToggleTheme}
-            className={`p-2 rounded-lg transition-all duration-200 border ${
+            className={`p-2 rounded-lg transition-all duration-200 border cursor-pointer ${
               isDark 
                 ? 'bg-slate-900/90 text-amber-400 border-slate-700/80 hover:bg-slate-800 hover:border-amber-400/40' 
                 : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900 shadow-sm'
@@ -264,7 +248,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="mobile-menu-toggle-btn"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg border transition-all ${
+            className={`lg:hidden p-2 rounded-lg border transition-all cursor-pointer ${
               isDark 
                 ? 'bg-slate-900 text-slate-200 border-slate-800 hover:bg-slate-800' 
                 : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50'
@@ -288,14 +272,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <div className="grid grid-cols-2 gap-1.5 pb-2">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
+              const isActive = activeSectionIndex === link.index;
               return (
-                <a
+                <button
                   key={link.id}
-                  href={link.href}
                   id={`mobile-nav-link-${link.id}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                  onClick={(e) => {
+                    handleLinkClick(e, link.index);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all text-left cursor-pointer ${
                     isActive
                       ? isDark
                         ? 'bg-blue-500/20 text-blue-400 font-semibold'
@@ -306,7 +292,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }`}
                 >
                   {link.name}
-                </a>
+                </button>
               );
             })}
           </div>
@@ -318,7 +304,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenResumeModal('aiml');
                 setIsMobileMenuOpen(false);
               }}
-              className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 border ${
+              className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 border cursor-pointer ${
                 isDark ? 'bg-blue-900/20 text-blue-400 border-blue-800/50' : 'bg-blue-50 text-blue-700 border-blue-200'
               }`}
             >
@@ -330,7 +316,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenResumeModal('embedded');
                 setIsMobileMenuOpen(false);
               }}
-              className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 border ${
+              className={`px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 border cursor-pointer ${
                 isDark ? 'bg-emerald-900/20 text-emerald-400 border-emerald-800/50' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
               }`}
             >

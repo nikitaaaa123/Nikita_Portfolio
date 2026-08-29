@@ -28,8 +28,8 @@ export const PERSONAL_INFO = {
     ],
   },
   contact: {
-    email: 'nikita.23bec10061@vitbhopal.ac.in',
-    alternateEmail: 'nbhansali2006@gmail.com',
+    email: 'nbhansali2006@gmail.com',
+    alternateEmail: 'nikita.23bec10061@vitbhopal.ac.in',
     phone: '+91-8585804977',
     formattedPhone: '+91 85858 04977',
     github: 'https://github.com/nikitaaaa123',
