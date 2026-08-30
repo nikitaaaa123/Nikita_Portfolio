@@ -297,7 +297,7 @@ export const StackedDeckContainer: React.FC<StackedDeckContainerProps> = ({
               } ${isDark ? 'bg-[#0a0e14]' : 'bg-[#fcfdfd]'}`}
             >
               {/* Inner Section Content */}
-              <div className="min-h-full w-full flex flex-col justify-start">
+              <div className="min-h-full w-full flex flex-col justify-start pb-48">
                 {section.component}
               </div>
             </motion.div>

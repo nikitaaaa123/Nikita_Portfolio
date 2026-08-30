@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 interface ProfileImageProps {
   className?: string;
@@ -11,16 +11,6 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
   size = 'lg',
   showBadge = true
 }) => {
-  const [imgError, setImgError] = useState(false);
-  const [photoSrc, setPhotoSrc] = useState<string>('/profesional_face_pic-removebg-preview.png');
-
-  useEffect(() => {
-    const saved = localStorage.getItem('nikita_portfolio_photo');
-    if (saved) {
-      setPhotoSrc(saved);
-      setImgError(false);
-    }
-  }, []);
 
   const sizeClasses = {
     sm: 'w-9 h-9',
@@ -41,27 +31,12 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
       {/* Styled Gradient Border Frame */}
       <div className={`rounded-full bg-gradient-to-tr from-blue-500 via-violet-500 to-emerald-400 ${ringSizes[size]} shadow-md`}>
         <div className={`rounded-full overflow-hidden bg-slate-900 flex items-center justify-center ${sizeClasses[size]} relative`}>
-          {!imgError ? (
-            <img
-              src={photoSrc}
-              alt="Nikita Bhansali"
-              referrerPolicy="no-referrer"
-              onError={() => {
-                if (photoSrc === '/profesional_face_pic-removebg-preview.png') {
-                  setPhotoSrc('/profile.png');
-                } else {
-                  setImgError(true);
-                }
-              }}
-              className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-            />
-          ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-slate-950 text-white font-mono">
-              <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                NB
-              </span>
-            </div>
-          )}
+          <img
+            src="/final_prof_pic.png"
+            alt="Nikita Bhansali"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+          />
         </div>
       </div>
 

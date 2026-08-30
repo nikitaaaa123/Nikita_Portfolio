@@ -1,0 +1,108 @@
+<svg viewBox="0 0 500 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="nb-glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="nb-skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3c8a9" />
+      <stop offset="50%" stop-color="#e5b492" />
+      <stop offset="100%" stop-color="#cb9876" />
+    </linearGradient>
+    <linearGradient id="nb-skin-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cb9876" />
+      <stop offset="100%" stop-color="#ad7958" />
+    </linearGradient>
+    <linearGradient id="nb-hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c2827" />
+      <stop offset="35%" stop-color="#181514" />
+      <stop offset="70%" stop-color="#100e0d" />
+      <stop offset="100%" stop-color="#090807" />
+    </linearGradient>
+    <linearGradient id="nb-hair-sheen" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#3d3735" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#554d4a" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#201c1b" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="nb-blazer-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#25272c" />
+      <stop offset="60%" stop-color="#16181b" />
+      <stop offset="100%" stop-color="#0d0e10" />
+    </linearGradient>
+    <linearGradient id="nb-blazer-right" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2c32" />
+      <stop offset="60%" stop-color="#181a1e" />
+      <stop offset="100%" stop-color="#0e0f12" />
+    </linearGradient>
+    <linearGradient id="nb-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#eab308" />
+      <stop offset="80%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+    <linearGradient id="nb-blouse" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <linearGradient id="nb-lips" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a3585b" />
+      <stop offset="60%" stop-color="#8e4448" />
+      <stop offset="100%" stop-color="#6e2d31" />
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="240" r="210" fill="url(#nb-glow)" />
+  <g>
+    <path d="M140 180 C110 240 100 340 120 440 C140 430 160 380 170 320 L160 220 Z" fill="url(#nb-hair)" />
+    <path d="M360 180 C390 240 400 340 380 440 C360 430 340 380 330 320 L340 220 Z" fill="url(#nb-hair)" />
+    <path d="M210 330 L250 430 L290 330 L275 490 L225 490 Z" fill="url(#nb-blouse)" />
+    <path d="M235 345 L250 395 L265 345 Z" fill="#cbd5e1" opacity="0.6" />
+    <path d="M225 335 L120 380 C80 405 50 480 40 560 L240 560 L248 450 L205 340 Z" fill="url(#nb-blazer-left)" />
+    <path d="M205 330 L165 420 L248 450 L220 335 Z" fill="#2d3037" />
+    <path d="M275 335 L380 380 C420 405 450 480 460 560 L260 560 L252 450 L295 340 Z" fill="url(#nb-blazer-right)" />
+    <path d="M295 330 L335 420 L252 450 L280 335 Z" fill="#33373f" />
+    <path d="M190 310 Q250 330 310 310 L300 335 Q250 345 200 335 Z" fill="#1c1d21" />
+    <path d="M210 250 L210 350 Q250 375 290 350 L290 250 Z" fill="url(#nb-skin)" />
+    <path d="M215 250 Q250 285 285 250 Q250 310 215 250 Z" fill="url(#nb-skin-shadow)" opacity="0.7" />
+    <path d="M175 160 C175 90 325 90 325 160 C325 245 295 285 250 285 C205 285 175 245 175 160 Z" fill="url(#nb-skin)" />
+    <ellipse cx="172" cy="180" rx="10" ry="18" fill="url(#nb-skin)" />
+    <ellipse cx="328" cy="180" rx="10" ry="18" fill="url(#nb-skin)" />
+    <circle cx="170" cy="195" r="7" fill="url(#nb-gold)" />
+    <circle cx="168" cy="193" r="2.5" fill="#ffffff" opacity="0.8" />
+    <circle cx="330" cy="195" r="7" fill="url(#nb-gold)" />
+    <circle cx="328" cy="193" r="2.5" fill="#ffffff" opacity="0.8" />
+    <path d="M165 170 C165 75 335 75 335 170 C335 220 355 280 365 380 C345 390 330 360 325 310 C320 220 315 140 270 120 C230 100 185 130 175 190 C170 230 160 310 135 380 C145 350 165 240 165 170 Z" fill="url(#nb-hair)" />
+    <path d="M210 92 C240 85 290 95 320 135 C285 110 245 105 205 118 Z" fill="url(#nb-hair-sheen)" />
+    <path d="M175 140 C190 115 220 100 250 98 C215 115 190 145 180 180 Z" fill="url(#nb-hair)" />
+    <path d="M165 175 C155 240 145 320 140 400 C155 360 170 280 175 210 Z" fill="url(#nb-hair)" />
+    <path d="M335 175 C345 240 355 320 360 400 C345 360 330 280 325 210 Z" fill="url(#nb-hair)" />
+    <path d="M192 148 Q212 142 228 147 Q212 145 192 148 Z" fill="#1c1917" stroke="#1c1917" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M272 147 Q288 142 308 148 Q288 145 272 147 Z" fill="#1c1917" stroke="#1c1917" stroke-width="3.5" stroke-linecap="round" />
+    <g>
+      <path d="M194 165 Q212 155 226 165 Q212 173 194 165 Z" fill="#ffffff" />
+      <ellipse cx="212" cy="164" rx="6.5" ry="6.5" fill="#2d221e" />
+      <circle cx="212" cy="164" r="3.5" fill="#090807" />
+      <circle cx="210.5" cy="162" r="1.5" fill="#ffffff" />
+      <path d="M190 165 Q212 154 228 163 Q233 160 236 158" stroke="#120f0e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g>
+      <path d="M274 165 Q288 155 306 165 Q288 173 274 165 Z" fill="#ffffff" />
+      <ellipse cx="288" cy="164" rx="6.5" ry="6.5" fill="#2d221e" />
+      <circle cx="288" cy="164" r="3.5" fill="#090807" />
+      <circle cx="286.5" cy="162" r="1.5" fill="#ffffff" />
+      <path d="M272 163 Q288 154 310 165 Q315 160 318 158" stroke="#120f0e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    </g>
+    <path d="M248 160 L246 195 Q238 202 244 205 Q250 206 256 205 Q262 202 254 195 L252 160" fill="none" stroke="#cb9876" stroke-width="1.8" stroke-linecap="round" />
+    <circle cx="242" cy="204" r="1.5" fill="#ad7958" opacity="0.6" />
+    <circle cx="258" cy="204" r="1.5" fill="#ad7958" opacity="0.6" />
+    <ellipse cx="198" cy="190" rx="14" ry="8" fill="#e18274" opacity="0.15" />
+    <ellipse cx="302" cy="190" rx="14" ry="8" fill="#e18274" opacity="0.15" />
+    <g>
+      <path d="M230 230 Q242 225 250 228 Q258 225 270 230 Q250 232 230 230 Z" fill="url(#nb-lips)" />
+      <path d="M230 230 Q250 244 270 230 Q250 233 230 230 Z" fill="url(#nb-lips)" />
+      <path d="M228 230 Q250 233 272 230" stroke="#5c2024" stroke-width="1.2" fill="none" />
+      <ellipse cx="250" cy="235" rx="5" ry="1.5" fill="#ffffff" opacity="0.3" />
+    </g>
+    <path d="M238 258 Q250 263 262 258" stroke="#cb9876" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6" />
+  </g>
+</svg>
