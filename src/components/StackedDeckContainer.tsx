@@ -70,7 +70,7 @@ export const StackedDeckContainer: React.FC<StackedDeckContainerProps> = ({
     }
 
     // Snappy transition lock
-    const lockDuration = prefersReducedMotion ? 120 : 420;
+    const lockDuration = prefersReducedMotion ? 120 : 300;
     setTimeout(() => {
       setIsTransitioning(false);
       // Reset inner scroll of target to top
@@ -281,7 +281,7 @@ export const StackedDeckContainer: React.FC<StackedDeckContainerProps> = ({
                 opacity: opacityValue,
               }}
               transition={{
-                duration: prefersReducedMotion ? 0.15 : 0.42,
+                duration: prefersReducedMotion ? 0.15 : 0.30,
                 ease: [0.25, 1, 0.5, 1], // Smooth snappy cubic-bezier curve
               }}
               style={{

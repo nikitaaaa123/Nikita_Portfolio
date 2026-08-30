@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 
 interface TiltCardProps {
@@ -19,7 +19,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
   id,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const rectRef = useRef<DOMRect | null>(null);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -29,23 +29,26 @@ export const TiltCard: React.FC<TiltCardProps> = ({
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [maxTilt, -maxTilt]), springConfig);
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-maxTilt, maxTilt]), springConfig);
 
+  const handleMouseEnter = () => {
+    // Cache the bounding box ONCE when the mouse enters to prevent layout thrashing
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    if (!rectRef.current) return;
+    // Use the cached dimensions for zero-cost math
+    const x = (e.clientX - rectRef.current.left) / rectRef.current.width - 0.5;
+    const y = (e.clientY - rectRef.current.top) / rectRef.current.height - 0.5;
     mouseX.set(x);
     mouseY.set(y);
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
   const handleMouseLeave = () => {
-    setIsHovered(false);
     mouseX.set(0);
     mouseY.set(0);
+    rectRef.current = null; // Clear cache
   };
 
   return (
@@ -56,18 +59,16 @@ export const TiltCard: React.FC<TiltCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      whileHover={{ scale: scaleOnHover }}
       style={{
         transformStyle: 'preserve-3d',
+        willChange: 'transform',
         rotateX,
         rotateY,
-      }}
-      animate={{
-        scale: isHovered ? scaleOnHover : 1,
       }}
       transition={{ duration: 0.2 }}
       className={`interactive-card relative transition-shadow duration-300 ${className}`}
     >
-      {/* Glare / Lighting Sweep */}
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-20"
         style={{
