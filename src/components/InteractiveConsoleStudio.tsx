@@ -78,11 +78,18 @@ export const InteractiveConsoleStudio: React.FC<InteractiveConsoleStudioProps> =
   const [historyPointer, setHistoryPointer] = useState<number>(-1);
   const [isBenchmarking, setIsBenchmarking] = useState(false);
 
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history, isBenchmarking]);
 
   const handleCommandExecution = (rawCommand: string) => {
@@ -431,6 +438,7 @@ export const InteractiveConsoleStudio: React.FC<InteractiveConsoleStudioProps> =
 
       {/* Terminal Body Screen */}
       <div 
+        ref={terminalBodyRef}
         onClick={() => inputRef.current?.focus()}
         className={`p-4 sm:p-5 h-[290px] overflow-y-auto font-mono text-xs cursor-text space-y-3 ${
           isDark ? 'bg-[#070b10] text-slate-200' : 'bg-slate-950 text-slate-100'
@@ -463,8 +471,6 @@ export const InteractiveConsoleStudio: React.FC<InteractiveConsoleStudioProps> =
             <span>Compiling ONNX model graph & executing 1,000 inference passes...</span>
           </div>
         )}
-
-        <div ref={terminalEndRef} />
       </div>
 
       {/* Quick Action Chips & Input Form */}

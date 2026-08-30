@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section 
       id="home" 
-      className={`relative min-h-[92vh] pt-20 sm:pt-24 pb-16 flex flex-col justify-center overflow-hidden ${
+      className={`relative min-h-[92vh] pt-20 sm:pt-24 pb-16 flex flex-col justify-center overflow-hidden scroll-mt-16 sm:scroll-mt-20 ${
         isDark ? 'bg-grid-pattern' : 'bg-grid-pattern-light'
       }`}
     >

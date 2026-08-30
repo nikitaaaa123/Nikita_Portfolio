@@ -4,16 +4,6 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Sparkles, 
-  User, 
-  Cpu, 
-  Briefcase, 
-  FolderGit2, 
-  Award, 
-  Flame, 
-  Mail 
-} from 'lucide-react';
 import { ThemeMode } from './types';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -26,7 +16,6 @@ import { Extracurricular } from './components/Extracurricular';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
-import { StackedDeckContainer, SectionCard } from './components/StackedDeckContainer';
 import { CustomCursor } from './components/CustomCursor';
 
 export default function App() {
@@ -55,6 +44,14 @@ export default function App() {
     setIsResumeModalOpen(true);
   };
 
+  // Ensure website always opens at the very top on load/reload
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   // Sync body styling when theme toggles
   useEffect(() => {
     if (theme === 'dark') {
@@ -68,7 +65,7 @@ export default function App() {
     }
   }, [theme]);
 
-  // Modal open class sync for preventing scroll conflicts
+  // Modal open class sync for preventing background scroll conflicts
   useEffect(() => {
     if (isResumeModalOpen) {
       document.body.classList.add('modal-open');
@@ -77,117 +74,116 @@ export default function App() {
     }
   }, [isResumeModalOpen]);
 
+  // Track active section automatically as user naturally scrolls
+  useEffect(() => {
+    const sectionIds = [
+      'home',
+      'about',
+      'skills',
+      'experience',
+      'projects',
+      'certifications',
+      'extracurricular',
+      'contact'
+    ];
+
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const idx = sectionIds.indexOf(id || '');
+          if (idx !== -1) {
+            setActiveSectionIndex(idx);
+          }
+        }
+      });
+    }, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const sectionIds = [
+    'home',
+    'about',
+    'skills',
+    'experience',
+    'projects',
+    'certifications',
+    'extracurricular',
+    'contact'
+  ];
+
+  const handleSelectSection = (index: number) => {
+    setActiveSectionIndex(index);
+    const targetId = sectionIds[index];
+    if (targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   const isDark = theme === 'dark';
 
-  // Define Stacked Sections Cards
-  const sections: SectionCard[] = [
+  // Sections List
+  const sections = [
     {
       id: 'home',
-      number: '01',
-      name: 'Hero & Engineering Console',
-      shortName: 'Home',
-      icon: <Sparkles className="w-4 h-4" />,
       component: (
         <Hero 
           theme={theme} 
-          onNavigateToProjects={() => setActiveSectionIndex(4)}
+          onNavigateToProjects={() => handleSelectSection(4)}
           onOpenResumeModal={handleOpenResumeModal}
         />
       ),
     },
     {
       id: 'about',
-      number: '02',
-      name: 'Background & Dual-Domain Focus',
-      shortName: 'About',
-      icon: <User className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <About theme={theme} />
-        </div>
-      ),
+      component: <About theme={theme} />,
     },
     {
       id: 'skills',
-      number: '03',
-      name: 'Technical Architecture & Stack',
-      shortName: 'Skills',
-      icon: <Cpu className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <Skills theme={theme} />
-        </div>
-      ),
+      component: <Skills theme={theme} />,
     },
     {
       id: 'experience',
-      number: '04',
-      name: 'Engineering Roles & Timeline',
-      shortName: 'Experience',
-      icon: <Briefcase className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <Experience theme={theme} />
-        </div>
-      ),
+      component: <Experience theme={theme} />,
     },
     {
       id: 'projects',
-      number: '05',
-      name: 'Intelligent Software & RF Systems',
-      shortName: 'Projects',
-      icon: <FolderGit2 className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <Projects theme={theme} />
-        </div>
-      ),
+      component: <Projects theme={theme} />,
     },
     {
       id: 'certifications',
-      number: '06',
-      name: 'Credentials & Verifications',
-      shortName: 'Certs',
-      icon: <Award className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <Certifications theme={theme} />
-        </div>
-      ),
+      component: <Certifications theme={theme} />,
     },
     {
       id: 'extracurricular',
-      number: '07',
-      name: 'Leadership, Competitions & Beyond',
-      shortName: 'Beyond',
-      icon: <Flame className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-16">
-          <Extracurricular theme={theme} />
-        </div>
-      ),
+      component: <Extracurricular theme={theme} />,
     },
     {
       id: 'contact',
-      number: '08',
-      name: 'Direct Contact & Inquiries',
-      shortName: 'Contact',
-      icon: <Mail className="w-4 h-4" />,
-      component: (
-        <div className="pt-16 sm:pt-20 pb-10 flex flex-col justify-between min-h-screen">
-          <Contact theme={theme} />
-          <Footer 
-            theme={theme} 
-            onOpenResumeModal={handleOpenResumeModal} 
-          />
-        </div>
-      ),
+      component: <Contact theme={theme} />,
     },
   ];
 
   return (
     <div 
-      className={`min-h-screen font-sans transition-colors duration-300 relative selection:bg-blue-500 selection:text-white ${
+      className={`min-h-screen w-full font-sans transition-colors duration-300 relative selection:bg-blue-500 selection:text-white ${
         isDark ? 'bg-[#0a0e14] text-slate-100' : 'bg-[#fcfdfd] text-slate-900'
       }`}
     >
@@ -200,18 +196,23 @@ export default function App() {
         onToggleTheme={toggleTheme}
         onOpenResumeModal={handleOpenResumeModal}
         activeSectionIndex={activeSectionIndex}
-        onSelectSection={(index) => setActiveSectionIndex(index)}
+        onSelectSection={handleSelectSection}
       />
 
-      {/* Stacked Card Deck Sections */}
-      <main className="w-full h-screen">
-        <StackedDeckContainer
-          sections={sections}
-          theme={theme}
-          activeSectionIndex={activeSectionIndex}
-          setActiveSectionIndex={setActiveSectionIndex}
-        />
+      {/* Native Standard Scrolling Layout */}
+      <main className="w-full flex flex-col">
+        {sections.map((section) => (
+          <React.Fragment key={section.id}>
+            {section.component}
+          </React.Fragment>
+        ))}
       </main>
+
+      {/* Footer */}
+      <Footer 
+        theme={theme} 
+        onOpenResumeModal={handleOpenResumeModal} 
+      />
 
       {/* Interactive Dual-Resume Modal Viewer */}
       <ResumeModal
@@ -223,3 +224,4 @@ export default function App() {
     </div>
   );
 }
+
