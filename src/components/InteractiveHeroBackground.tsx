@@ -62,8 +62,8 @@ export const InteractiveHeroBackground: React.FC<InteractiveHeroBackgroundProps>
     let particles: Particle[] = [];
 
     const colors = isDark 
-      ? ['#38bdf8', '#818cf8', '#34d399', '#60a5fa'] 
-      : ['#0284c7', '#6366f1', '#059669', '#2563eb'];
+      ? ['#a78bfa', '#c4b5fd', '#8b5cf6', '#ddd6fe', '#e9d5ff'] 
+      : ['#7c3aed', '#8b5cf6', '#a78bfa', '#6d28d9', '#9333ea'];
 
     const initParticles = () => {
       particles = [];
@@ -100,12 +100,12 @@ export const InteractiveHeroBackground: React.FC<InteractiveHeroBackgroundProps>
         400
       );
       if (isDark) {
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.08)');
-        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.03)');
-        gradient.addColorStop(1, 'rgba(10, 14, 20, 0)');
+        gradient.addColorStop(0, 'rgba(139, 92, 246, 0.09)');
+        gradient.addColorStop(0.5, 'rgba(167, 139, 250, 0.03)');
+        gradient.addColorStop(1, 'rgba(14, 12, 26, 0)');
       } else {
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.05)');
-        gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.02)');
+        gradient.addColorStop(0, 'rgba(139, 92, 246, 0.06)');
+        gradient.addColorStop(0.5, 'rgba(196, 181, 253, 0.02)');
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
       }
 

@@ -24,12 +24,12 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
     <footer 
       id="main-footer"
       className={`border-t transition-colors ${
-        isDark ? 'bg-[#070b10] border-slate-800/80 text-slate-400' : 'bg-slate-100/80 border-slate-200 text-slate-600'
+        isDark ? 'bg-[#0a0714] border-violet-950/80 text-violet-300/70' : 'bg-violet-50/60 border-violet-100 text-slate-600'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-8 border-b ${
-          isDark ? 'border-slate-800/60' : 'border-slate-200'
+          isDark ? 'border-violet-900/40' : 'border-violet-200'
         }`}>
           
           {/* Brand & Monogram */}
@@ -37,12 +37,12 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
             <div className="flex items-center gap-2.5">
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-mono font-bold text-xs border ${
                 isDark 
-                  ? 'bg-blue-500/10 border-blue-500/30 text-blue-400' 
-                  : 'bg-blue-50 border-blue-200 text-blue-700'
+                  ? 'bg-violet-500/10 border-violet-500/30 text-violet-400' 
+                  : 'bg-violet-50 border-violet-200 text-violet-700'
               }`}>
                 NB
               </div>
-              <span className={`font-bold text-base ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>
+              <span className={`font-bold text-base ${isDark ? 'text-violet-50' : 'text-slate-900'}`}>
                 Nikita Bhansali
               </span>
             </div>
@@ -53,19 +53,19 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
 
           {/* Quick Resumes & Anchor Links */}
           <div className="md:col-span-4 flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono">
-            <a href="#about" className="hover:text-blue-500 transition-colors">About</a>
-            <a href="#skills" className="hover:text-blue-500 transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-blue-500 transition-colors">Projects</a>
-            <a href="#experience" className="hover:text-blue-500 transition-colors">Experience</a>
+            <a href="#about" className="hover:text-violet-500 transition-colors">About</a>
+            <a href="#skills" className="hover:text-violet-500 transition-colors">Skills</a>
+            <a href="#projects" className="hover:text-violet-500 transition-colors">Projects</a>
+            <a href="#experience" className="hover:text-violet-500 transition-colors">Experience</a>
             <button 
               onClick={() => onOpenResumeModal('aiml')}
-              className="text-blue-500 hover:underline text-left cursor-pointer"
+              className="text-violet-500 hover:underline text-left cursor-pointer"
             >
               AI/ML Resume
             </button>
             <button 
               onClick={() => onOpenResumeModal('embedded')}
-              className="text-emerald-500 hover:underline text-left cursor-pointer"
+              className="text-violet-400 hover:underline text-left cursor-pointer"
             >
               RF/Embedded Resume
             </button>
@@ -79,8 +79,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
               rel="noreferrer"
               className={`p-2 rounded-xl border transition-colors ${
                 isDark 
-                  ? 'border-slate-700/50 hover:bg-slate-800 text-slate-300 hover:text-white' 
-                  : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 shadow-sm'
+                  ? 'border-violet-900/60 hover:bg-[#20183e] text-violet-200 hover:text-white' 
+                  : 'border-violet-200 bg-white hover:bg-violet-50 text-slate-700 hover:text-violet-600 shadow-sm'
               }`}
               title="GitHub"
             >
@@ -93,8 +93,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
               rel="noreferrer"
               className={`p-2 rounded-xl border transition-colors ${
                 isDark 
-                  ? 'border-slate-700/50 hover:bg-slate-800 text-blue-400 hover:text-blue-300' 
-                  : 'border-slate-200 bg-white hover:bg-slate-50 text-blue-600 hover:text-blue-700 shadow-sm'
+                  ? 'border-violet-900/60 hover:bg-[#20183e] text-violet-400 hover:text-violet-300' 
+                  : 'border-violet-200 bg-white hover:bg-violet-50 text-violet-600 hover:text-violet-700 shadow-sm'
               }`}
               title="LinkedIn"
             >
@@ -105,8 +105,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
               href={`mailto:${PERSONAL_INFO.contact.email}`}
               className={`p-2 rounded-xl border transition-colors ${
                 isDark 
-                  ? 'border-slate-700/50 hover:bg-slate-800 text-slate-300 hover:text-white' 
-                  : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 shadow-sm'
+                  ? 'border-violet-900/60 hover:bg-[#20183e] text-violet-200 hover:text-white' 
+                  : 'border-violet-200 bg-white hover:bg-violet-50 text-slate-700 hover:text-violet-600 shadow-sm'
               }`}
               title="Email"
             >
@@ -118,8 +118,8 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
               id="back-to-top-btn"
               className={`p-2.5 rounded-xl border transition-all flex items-center gap-1.5 text-xs font-mono cursor-pointer ${
                 isDark 
-                  ? 'bg-slate-900 border-slate-700 text-slate-300 hover:text-white hover:border-blue-500' 
-                  : 'bg-white border-slate-200 text-slate-700 hover:text-slate-900 shadow-sm'
+                  ? 'bg-[#18122e] border-violet-900/70 text-violet-200 hover:text-white hover:border-violet-500' 
+                  : 'bg-white border-violet-200 text-slate-700 hover:text-violet-600 shadow-sm'
               }`}
               title="Scroll to top"
             >
@@ -132,13 +132,13 @@ export const Footer: React.FC<FooterProps> = ({ theme, onOpenResumeModal }) => {
 
         {/* Bottom copyright line */}
         <div className={`pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono ${
-          isDark ? 'text-slate-400' : 'text-slate-500'
+          isDark ? 'text-violet-300/60' : 'text-slate-500'
         }`}>
           <div>
             © 2026 Nikita Bhansali. All rights reserved.
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span className="w-2 h-2 rounded-full bg-violet-500"></span>
             <span>VIT Bhopal • ECE (2023–2027)</span>
           </div>
         </div>

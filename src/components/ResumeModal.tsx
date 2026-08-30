@@ -77,14 +77,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
     >
       <div 
         className={`relative w-full max-w-5xl rounded-2xl border shadow-2xl transition-all h-[92vh] max-h-[95vh] flex flex-col overflow-hidden ${
-          isDark ? 'bg-[#0e1420] border-slate-700/80 text-slate-200' : 'bg-white border-slate-300 text-slate-800'
+          isDark ? 'bg-[#18122e] border-violet-900/80 text-violet-100' : 'bg-white border-violet-200 text-slate-800'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Control Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-3 border-b border-slate-700/40 shrink-0 bg-slate-900/95 text-white">
+        <div className="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-3 border-b border-violet-900/40 shrink-0 bg-[#20183e] text-violet-100">
           <div className="flex items-center gap-2 min-w-0">
-            <FileText className="w-5 h-5 text-blue-400 shrink-0" />
+            <FileText className="w-5 h-5 text-violet-400 shrink-0" />
             <span className="font-mono text-xs sm:text-sm font-semibold truncate">
               {isAiml ? 'AI/ML Resume' : 'Embedded / RF Resume'} — {fileName}
             </span>
@@ -92,14 +92,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
 
           <div className="flex items-center gap-2 shrink-0">
             {/* Toggle Specialization */}
-            <div className="flex rounded-lg p-0.5 bg-slate-800 border border-slate-700 text-xs font-mono">
+            <div className="flex rounded-lg p-0.5 bg-[#100b24] border border-violet-900/70 text-xs font-mono">
               <button
                 onClick={() => {
                   setResumeType('aiml');
                   setCacheBuster(Date.now());
                 }}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer ${
-                  isAiml ? 'bg-blue-600 text-white font-semibold shadow-sm' : 'text-slate-400 hover:text-white'
+                  isAiml ? 'bg-violet-500 text-white font-semibold shadow-sm' : 'text-violet-300 hover:text-white'
                 }`}
               >
                 <Brain className="w-3.5 h-3.5" />
@@ -112,7 +112,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   setCacheBuster(Date.now());
                 }}
                 className={`px-2.5 sm:px-3 py-1.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer ${
-                  !isAiml ? 'bg-emerald-600 text-white font-semibold shadow-sm' : 'text-slate-400 hover:text-white'
+                  !isAiml ? 'bg-violet-500 text-white font-semibold shadow-sm' : 'text-violet-300 hover:text-white'
                 }`}
               >
                 <Radio className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
             {/* Refresh PDF Cache */}
             <button
               onClick={handleReloadPdf}
-              className="p-1.5 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white transition-all cursor-pointer"
+              className="p-1.5 rounded-lg border border-violet-900/60 hover:bg-violet-950 text-violet-300 hover:text-white transition-all cursor-pointer"
               title="Reload newest PDF from public directory"
             >
               <RefreshCw className="w-4 h-4" />
@@ -134,7 +134,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
             <button
               id="resume-open-tab-btn"
               onClick={handleOpenInNewTab}
-              className="px-3 py-1.5 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-300 hover:text-white transition-all text-xs font-mono flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-violet-900/60 hover:bg-violet-950 text-violet-300 hover:text-white transition-all text-xs font-mono flex items-center gap-1.5 cursor-pointer"
               title="Open full PDF document in a new tab"
             >
               <ExternalLink className="w-3.5 h-3.5" />
@@ -145,7 +145,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
             <button
               id="resume-download-btn"
               onClick={handleDownload}
-              className="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm cursor-pointer"
+              className="px-3.5 py-1.5 rounded-lg bg-violet-500 hover:bg-violet-600 text-white transition-all text-xs font-mono font-medium flex items-center gap-1.5 shadow-sm shadow-violet-500/20 cursor-pointer"
               title={`Download exact ${fileName} file`}
             >
               <Download className="w-3.5 h-3.5" />
@@ -155,7 +155,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg border border-slate-700 hover:bg-slate-800 text-slate-400 hover:text-white transition-all ml-1 cursor-pointer"
+              className="p-1.5 rounded-lg border border-violet-900/60 hover:bg-violet-950 text-violet-300 hover:text-white transition-all ml-1 cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
@@ -164,27 +164,27 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
         </div>
 
         {/* Live PDF Viewer directly rendering the PDF from /public */}
-        <div className="relative flex-1 w-full h-full bg-slate-900/40 overflow-hidden">
+        <div className="relative flex-1 w-full h-full bg-[#100b24]/40 overflow-hidden">
           {loadError ? (
             <div className="flex flex-col items-center justify-center h-full p-8 text-center space-y-4">
-              <FileText className="w-12 h-12 text-slate-500" />
+              <FileText className="w-12 h-12 text-violet-400" />
               <div className="space-y-1">
-                <p className="text-base font-semibold text-slate-200">Unable to preview PDF directly in browser</p>
-                <p className="text-xs text-slate-400 max-w-md">
+                <p className="text-base font-semibold text-violet-100">Unable to preview PDF directly in browser</p>
+                <p className="text-xs text-violet-300/80 max-w-md">
                   Your browser may be restricting embedded PDF rendering. You can open the live PDF directly or download it.
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleOpenInNewTab}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold rounded-lg flex items-center gap-2"
+                  className="px-4 py-2 bg-violet-500 hover:bg-violet-600 text-white text-xs font-semibold rounded-lg flex items-center gap-2 shadow-sm shadow-violet-500/20"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Open Live PDF in New Tab
                 </button>
                 <button
                   onClick={handleDownload}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold rounded-lg flex items-center gap-2"
+                  className="px-4 py-2 bg-[#20183e] hover:bg-violet-950 text-violet-200 border border-violet-900/60 text-xs font-semibold rounded-lg flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   Download File

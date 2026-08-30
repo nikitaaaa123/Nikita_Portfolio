@@ -91,10 +91,10 @@ export const Hero: React.FC<HeroProps> = ({
 
       {/* Ambient background glows */}
       <div className={`absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none -z-10 ${
-        isDark ? 'bg-blue-600/10' : 'bg-blue-500/5'
+        isDark ? 'bg-violet-600/10' : 'bg-violet-400/10'
       }`} />
       <div className={`absolute bottom-10 right-1/4 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none -z-10 ${
-        isDark ? 'bg-emerald-600/10' : 'bg-emerald-500/5'
+        isDark ? 'bg-purple-600/10' : 'bg-purple-300/10'
       }`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -116,17 +116,17 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ delay: 0.1, duration: 0.5 }}
               className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border text-xs font-mono transition-all hover:scale-105 ${
                 isDark 
-                  ? 'bg-[#0e1420]/90 border-slate-800 text-slate-300 shadow-sm' 
-                  : 'bg-white border-slate-200 text-slate-700 shadow-sm'
+                  ? 'bg-[#18142e]/90 border-violet-900/60 text-violet-200 shadow-sm' 
+                  : 'bg-white border-violet-200 text-slate-700 shadow-sm shadow-violet-500/5'
               }`}
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
               </span>
-              <span className="text-blue-400 font-semibold">B.Tech ECE · VIT Bhopal</span>
-              <span className="text-slate-500">|</span>
-              <span className="text-slate-400 font-medium">CGPA 8.48</span>
+              <span className="text-violet-600 dark:text-violet-400 font-semibold">B.Tech ECE · VIT Bhopal</span>
+              <span className="text-violet-300 dark:text-violet-800">|</span>
+              <span className="text-slate-500 dark:text-violet-300/70 font-medium">CGPA 8.48</span>
             </motion.div>
 
             {/* Intro and Name */}
@@ -136,8 +136,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ delay: 0.2, duration: 0.6 }}
               className="space-y-1.5"
             >
-              <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-400 font-semibold uppercase tracking-wider">
-                <span className="w-6 h-px bg-blue-500"></span>
+              <div className="inline-flex items-center gap-2 font-mono text-xs text-violet-500 font-semibold uppercase tracking-wider">
+                <span className="w-6 h-px bg-violet-500"></span>
                 <span>HI, I AM</span>
               </div>
               
@@ -156,15 +156,15 @@ export const Hero: React.FC<HeroProps> = ({
               className="h-10 sm:h-12 flex items-center"
             >
               <div className="text-lg sm:text-2xl font-bold font-mono">
-                <span className="text-slate-400">&gt; </span>
+                <span className="text-violet-400 dark:text-violet-600">&gt; </span>
                 <span className={`tracking-tight ${
                   isDark 
-                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400' 
-                    : 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-600'
+                    ? 'text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300' 
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-700'
                 }`}>
                   {displayedRoleText}
                 </span>
-                <span className="inline-block w-2 h-5 ml-1 bg-blue-500 animate-pulse align-middle" />
+                <span className="inline-block w-2 h-5 ml-1 bg-violet-500 animate-pulse align-middle" />
               </div>
             </motion.div>
 
@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className={`text-sm sm:text-base max-w-2xl leading-relaxed ${
-                isDark ? 'text-slate-300' : 'text-slate-600'
+                isDark ? 'text-violet-100/80' : 'text-slate-600'
               }`}
             >
               I bridge the seam between deep neural network architectures and low-level physical silicon — engineering intelligent edge models, SDR anti-drone radar defenses, and real-time embedded systems.
@@ -197,11 +197,7 @@ export const Hero: React.FC<HeroProps> = ({
                   }
                 }}
                 id="hero-see-work-btn"
-                className={`px-6 py-3.5 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 group cursor-pointer ${
-                  isDark
-                    ? 'bg-white text-slate-900 hover:bg-slate-100 shadow-lg shadow-white/10 hover:scale-105'
-                    : 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/10 hover:scale-105'
-                }`}
+                className="px-6 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 flex items-center gap-2 group cursor-pointer bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-600 text-white hover:from-violet-600 hover:to-purple-600 shadow-lg shadow-violet-500/25 hover:scale-105 hover:shadow-violet-500/40"
               >
                 <span>Explore Featured Systems</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -213,11 +209,11 @@ export const Hero: React.FC<HeroProps> = ({
                   onClick={() => setShowResumeMenu(!showResumeMenu)}
                   className={`px-5 py-3.5 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 border cursor-pointer ${
                     isDark
-                      ? 'bg-slate-900/90 border-slate-700 hover:border-slate-500 text-slate-200 shadow-sm hover:scale-105'
-                      : 'bg-white border-slate-300 hover:border-slate-400 text-slate-800 shadow-sm hover:scale-105'
+                      ? 'bg-[#18142e] border-violet-900/70 hover:border-violet-500/60 text-violet-100 shadow-sm hover:scale-105'
+                      : 'bg-white border-violet-200 hover:border-violet-400 text-slate-800 shadow-sm hover:scale-105 hover:bg-violet-50/50'
                   }`}
                 >
-                  <FileText className="w-4 h-4 text-emerald-500" />
+                  <FileText className="w-4 h-4 text-violet-500" />
                   <span>Resume</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showResumeMenu ? 'rotate-180' : ''}`} />
                 </button>
@@ -226,10 +222,10 @@ export const Hero: React.FC<HeroProps> = ({
                 {showResumeMenu && (
                   <div className={`absolute left-0 mt-2 w-64 rounded-2xl border p-2 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200 ${
                     isDark 
-                      ? 'bg-slate-900/95 border-slate-800 text-slate-200 backdrop-blur-xl' 
-                      : 'bg-white/95 border-slate-200 text-slate-800 backdrop-blur-xl'
+                      ? 'bg-[#18142e]/95 border-violet-900/70 text-violet-100 backdrop-blur-xl shadow-black/80' 
+                      : 'bg-white/95 border-violet-200 text-slate-800 backdrop-blur-xl shadow-violet-500/15'
                   }`}>
-                    <div className="px-3 py-1.5 text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                    <div className="px-3 py-1.5 text-[10px] font-mono text-violet-500 uppercase tracking-wider font-semibold">
                       Dual-Track Resumes
                     </div>
                     
@@ -239,13 +235,13 @@ export const Hero: React.FC<HeroProps> = ({
                       rel="noreferrer"
                       onClick={() => setShowResumeMenu(false)}
                       className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs transition-colors ${
-                        isDark ? 'hover:bg-slate-800 text-slate-200' : 'hover:bg-slate-100 text-slate-800'
+                        isDark ? 'hover:bg-violet-950/40 text-violet-100' : 'hover:bg-violet-50 text-slate-800'
                       }`}
                     >
-                      <Brain className="w-4 h-4 text-violet-400" />
+                      <Brain className="w-4 h-4 text-violet-500" />
                       <div>
                         <div className="font-semibold">AI / ML Focus</div>
-                        <div className="text-[10px] text-slate-400 font-mono">Deep Learning & NLP</div>
+                        <div className="text-[10px] text-violet-400 font-mono">Deep Learning & NLP</div>
                       </div>
                     </a>
 
@@ -255,13 +251,13 @@ export const Hero: React.FC<HeroProps> = ({
                       rel="noreferrer"
                       onClick={() => setShowResumeMenu(false)}
                       className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs transition-colors ${
-                        isDark ? 'hover:bg-slate-800 text-slate-200' : 'hover:bg-slate-100 text-slate-800'
+                        isDark ? 'hover:bg-violet-950/40 text-violet-100' : 'hover:bg-violet-50 text-slate-800'
                       }`}
                     >
-                      <Radio className="w-4 h-4 text-emerald-400" />
+                      <Radio className="w-4 h-4 text-purple-500" />
                       <div>
                         <div className="font-semibold">Embedded & RF Focus</div>
-                        <div className="text-[10px] text-slate-400 font-mono">SDR, Antennas & Silicon</div>
+                        <div className="text-[10px] text-purple-400 font-mono">SDR, Antennas & Silicon</div>
                       </div>
                     </a>
                   </div>
@@ -284,11 +280,11 @@ export const Hero: React.FC<HeroProps> = ({
                 id="hero-github-link"
                 className={`px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-all hover:scale-105 ${
                   isDark 
-                    ? 'bg-slate-900/60 border-slate-800 hover:border-slate-600 text-slate-300' 
-                    : 'bg-white border-slate-200 hover:border-slate-400 text-slate-700 shadow-sm'
+                    ? 'bg-[#18142e]/80 border-violet-900/60 hover:border-violet-500/60 text-violet-200' 
+                    : 'bg-white border-violet-200 hover:border-violet-400 text-slate-700 shadow-sm'
                 }`}
               >
-                <Github className="w-3.5 h-3.5" />
+                <Github className="w-3.5 h-3.5 text-violet-500" />
                 <span>github.com/nikitaaaa123</span>
               </a>
 
@@ -300,11 +296,11 @@ export const Hero: React.FC<HeroProps> = ({
                 id="hero-linkedin-link"
                 className={`px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-all hover:scale-105 ${
                   isDark 
-                    ? 'bg-slate-900/60 border-slate-800 hover:border-blue-700/60 text-blue-300' 
-                    : 'bg-white border-slate-200 hover:border-blue-400 text-blue-700 shadow-sm'
+                    ? 'bg-[#18142e]/80 border-violet-900/60 hover:border-violet-500/60 text-violet-200' 
+                    : 'bg-white border-violet-200 hover:border-violet-400 text-slate-700 shadow-sm'
                 }`}
               >
-                <Linkedin className="w-3.5 h-3.5 text-blue-500" />
+                <Linkedin className="w-3.5 h-3.5 text-violet-500" />
                 <span>LinkedIn</span>
               </a>
 
@@ -314,16 +310,16 @@ export const Hero: React.FC<HeroProps> = ({
                 id="hero-email-copy"
                 className={`px-3 py-1.5 rounded-lg border flex items-center gap-1.5 transition-all hover:scale-105 cursor-pointer ${
                   isDark 
-                    ? 'bg-slate-900/60 border-slate-800 hover:border-slate-600 text-slate-300' 
-                    : 'bg-white border-slate-200 hover:border-slate-400 text-slate-700 shadow-sm'
+                    ? 'bg-[#18142e]/80 border-violet-900/60 hover:border-violet-500/60 text-violet-200' 
+                    : 'bg-white border-violet-200 hover:border-violet-400 text-slate-700 shadow-sm'
                 }`}
               >
-                <Mail className="w-3.5 h-3.5 text-slate-400" />
+                <Mail className="w-3.5 h-3.5 text-violet-400" />
                 <span>{PERSONAL_INFO.contact.email}</span>
                 {copiedEmail ? (
-                  <Check className="w-3 h-3 text-emerald-400 ml-1" />
+                  <Check className="w-3 h-3 text-violet-500 ml-1" />
                 ) : (
-                  <span className="text-[10px] text-slate-500 ml-1 font-mono">Copy</span>
+                  <span className="text-[10px] text-violet-400 ml-1 font-mono">Copy</span>
                 )}
               </button>
             </motion.div>
@@ -351,12 +347,12 @@ export const Hero: React.FC<HeroProps> = ({
         >
           <div className="flex items-center justify-between mb-3 px-1">
             <div className="flex items-center gap-2 text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span className={isDark ? 'text-slate-300 font-semibold' : 'text-slate-700 font-semibold'}>
+              <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping" />
+              <span className={isDark ? 'text-violet-200 font-semibold' : 'text-slate-800 font-semibold'}>
                 Live Interactive Engineering REPL Terminal
               </span>
             </div>
-            <span className="text-[11px] font-mono text-blue-500 hidden sm:inline">
+            <span className="text-[11px] font-mono text-violet-500 hidden sm:inline font-medium">
               Type 'help' or click presets to inspect skills, hardware & telemetry
             </span>
           </div>

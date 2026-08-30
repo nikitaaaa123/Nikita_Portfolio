@@ -141,7 +141,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
       {/* Top Global Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 z-50 pointer-events-none bg-transparent">
         <motion.div 
-          className="h-full bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-400"
+          className="h-full bg-gradient-to-r from-violet-400 via-purple-400 to-violet-500"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -152,8 +152,8 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
         {/* Floating Mini-Map Dots with Tooltip */}
         <div className={`p-2 rounded-2xl border backdrop-blur-xl flex flex-col gap-2 shadow-2xl transition-all ${
           isDark 
-            ? 'bg-[#0a0e14]/85 border-slate-800/90 shadow-black/50' 
-            : 'bg-white/90 border-slate-200/90 shadow-slate-300/40'
+            ? 'bg-[#100b24]/90 border-violet-900/60 shadow-black/50' 
+            : 'bg-white/90 border-violet-200/90 shadow-violet-300/20'
         }`}>
           {SECTIONS.map((sec, idx) => {
             const isActive = activeSectionIndex === idx;
@@ -169,16 +169,16 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
                 <div 
                   className={`transition-all duration-300 rounded-full ${
                     isActive 
-                      ? 'w-6 h-2 bg-gradient-to-r from-blue-500 to-violet-500 shadow-md shadow-blue-500/50' 
-                      : isDark ? 'w-2 h-2 bg-slate-700 hover:bg-slate-400 group-hover:scale-125' : 'w-2 h-2 bg-slate-300 hover:bg-slate-500 group-hover:scale-125'
+                      ? 'w-6 h-2 bg-gradient-to-r from-violet-500 to-purple-500 shadow-md shadow-violet-500/50' 
+                      : isDark ? 'w-2 h-2 bg-violet-900/70 hover:bg-violet-400 group-hover:scale-125' : 'w-2 h-2 bg-violet-200 hover:bg-violet-400 group-hover:scale-125'
                   }`}
                 />
 
                 {/* Floating Tooltip Tag on Hover */}
                 <div className={`absolute right-9 px-2.5 py-1 rounded-lg text-[11px] font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 translate-x-2 group-hover:translate-x-0 border shadow-lg ${
-                  isDark ? 'bg-slate-900 border-slate-700 text-slate-100' : 'bg-white border-slate-200 text-slate-900'
+                  isDark ? 'bg-[#18122e] border-violet-900/80 text-violet-100' : 'bg-white border-violet-200 text-slate-900'
                 }`}>
-                  <span className="text-blue-500 font-bold mr-1.5">{sec.number}</span>
+                  <span className="text-violet-500 font-bold mr-1.5">{sec.number}</span>
                   <span>{sec.name}</span>
                 </div>
               </button>
@@ -188,7 +188,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
 
         {/* Up / Down Fast Gliders */}
         <div className={`p-1.5 rounded-xl border backdrop-blur-xl flex flex-col gap-1 shadow-lg ${
-          isDark ? 'bg-[#0a0e14]/85 border-slate-800' : 'bg-white/90 border-slate-200'
+          isDark ? 'bg-[#100b24]/90 border-violet-900/60' : 'bg-white/90 border-violet-200'
         }`}>
           <button
             onClick={handlePrevSection}
@@ -196,7 +196,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
             className={`p-1.5 rounded-lg transition-all cursor-pointer ${
               activeSectionIndex === 0 
                 ? 'opacity-30 cursor-not-allowed' 
-                : isDark ? 'hover:bg-slate-800 text-slate-300' : 'hover:bg-slate-100 text-slate-700'
+                : isDark ? 'hover:bg-[#20183e] text-violet-200' : 'hover:bg-violet-50 text-slate-700'
             }`}
             title="Previous Section (Key: ↑ or K)"
           >
@@ -205,7 +205,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
           <button
             onClick={handleNextSection}
             className={`p-1.5 rounded-lg transition-all cursor-pointer ${
-              isDark ? 'hover:bg-slate-800 text-slate-300' : 'hover:bg-slate-100 text-slate-700'
+              isDark ? 'hover:bg-[#20183e] text-violet-200' : 'hover:bg-violet-50 text-slate-700'
             }`}
             title="Next Section (Key: ↓ or J)"
           >
@@ -222,8 +222,8 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
           transition={{ duration: 0.5, delay: 0.5 }}
           className={`flex items-center gap-2 p-1.5 sm:p-2 rounded-2xl border backdrop-blur-xl shadow-2xl transition-all ${
             isDark 
-              ? 'bg-[#0e1420]/95 border-slate-800/90 shadow-black/60 text-slate-100' 
-              : 'bg-white/95 border-slate-200/90 shadow-slate-300/60 text-slate-900'
+              ? 'bg-[#18122e]/95 border-violet-900/70 shadow-black/60 text-violet-100' 
+              : 'bg-white/95 border-violet-200/90 shadow-violet-300/20 text-slate-900'
           }`}
         >
           {/* Active Section Badge with Selector */}
@@ -231,15 +231,15 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
             onClick={() => setShowNavigatorMenu(!showNavigatorMenu)}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-mono transition-all cursor-pointer ${
               isDark 
-                ? 'bg-slate-900/90 border-slate-800 hover:border-blue-500/50' 
-                : 'bg-slate-100 border-slate-200 hover:border-blue-400'
+                ? 'bg-[#100b24]/90 border-violet-900/60 hover:border-violet-500/50' 
+                : 'bg-violet-50/60 border-violet-200 hover:border-violet-400'
             }`}
           >
-            <div className="p-1 rounded-lg bg-blue-500/10 text-blue-500">
+            <div className="p-1 rounded-lg bg-violet-500/10 text-violet-500">
               {currentSection.icon}
             </div>
             <div className="text-left hidden sm:block">
-              <div className="text-[10px] text-blue-500 font-bold uppercase tracking-wider">
+              <div className="text-[10px] text-violet-500 font-bold uppercase tracking-wider">
                 Section {currentSection.number}
               </div>
               <div className="font-semibold truncate max-w-[130px]">
@@ -249,7 +249,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
             <div className="text-left sm:hidden font-semibold">
               {currentSection.number} {currentSection.shortName}
             </div>
-            <Compass className={`w-3.5 h-3.5 text-slate-400 transition-transform ${showNavigatorMenu ? 'rotate-180' : ''}`} />
+            <Compass className={`w-3.5 h-3.5 text-violet-400 transition-transform ${showNavigatorMenu ? 'rotate-180' : ''}`} />
           </button>
 
           {/* Glide to Next Section Main Button */}
@@ -257,7 +257,7 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             onClick={handleNextSection}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/20 cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white shadow-lg shadow-violet-500/25 cursor-pointer"
           >
             <span>{activeSectionIndex === SECTIONS.length - 1 ? 'Top' : 'Next Section'}</span>
             <ChevronDown className="w-3.5 h-3.5" />
@@ -274,14 +274,14 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className={`fixed bottom-20 left-1/2 -translate-x-1/2 z-50 w-[90vw] max-w-sm rounded-2xl border p-3 backdrop-blur-2xl shadow-2xl ${
-              isDark ? 'bg-[#0e1420]/95 border-slate-800 shadow-black/80' : 'bg-white/95 border-slate-200 shadow-xl'
+              isDark ? 'bg-[#18122e]/95 border-violet-900 shadow-black/80' : 'bg-white/95 border-violet-200 shadow-xl'
             }`}
           >
-            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/40 px-2">
-              <span className="text-[11px] font-mono font-bold text-blue-500 uppercase tracking-wider">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-violet-900/40 px-2">
+              <span className="text-[11px] font-mono font-bold text-violet-500 uppercase tracking-wider">
                 Direct Section Navigator
               </span>
-              <span className="text-[10px] font-mono text-slate-400">Keys: 1 - 8</span>
+              <span className="text-[10px] font-mono text-violet-400">Keys: 1 - 8</span>
             </div>
 
             <div className="grid grid-cols-2 gap-1.5">
@@ -294,10 +294,10 @@ export const ScrollPresentationHUD: React.FC<ScrollPresentationHUDProps> = ({ th
                   }}
                   className={`flex items-center gap-2 p-2 rounded-xl text-xs font-mono text-left transition-all cursor-pointer ${
                     activeSectionIndex === idx
-                      ? 'bg-blue-600 text-white font-semibold shadow-sm'
+                      ? 'bg-violet-500 text-white font-semibold shadow-sm shadow-violet-500/20'
                       : isDark 
-                        ? 'hover:bg-slate-800/80 text-slate-300' 
-                        : 'hover:bg-slate-100 text-slate-800'
+                        ? 'hover:bg-[#20183e] text-violet-200' 
+                        : 'hover:bg-violet-50 text-slate-800'
                   }`}
                 >
                   <span className="text-[10px] opacity-70">{sec.number}</span>

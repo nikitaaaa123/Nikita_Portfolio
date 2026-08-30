@@ -42,48 +42,48 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
     switch (iconType) {
       case 'radio':
         return {
-          icon: <Radio className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />,
-          container: isDark ? 'bg-cyan-950/50 border-cyan-800/60' : 'bg-cyan-50 border-cyan-200 shadow-sm',
+          icon: <Radio className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'brain':
         return {
           icon: <Brain className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
-          container: isDark ? 'bg-violet-950/50 border-violet-800/60' : 'bg-violet-50 border-violet-200 shadow-sm',
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'rocket':
         return {
-          icon: <Rocket className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />,
-          container: isDark ? 'bg-amber-950/50 border-amber-800/60' : 'bg-amber-50 border-amber-200 shadow-sm',
+          icon: <Rocket className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'bot':
         return {
-          icon: <Bot className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />,
-          container: isDark ? 'bg-emerald-950/50 border-emerald-800/60' : 'bg-emerald-50 border-emerald-200 shadow-sm',
+          icon: <Bot className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'ticket':
         return {
-          icon: <Ticket className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />,
-          container: isDark ? 'bg-blue-950/50 border-blue-800/60' : 'bg-blue-50 border-blue-200 shadow-sm',
+          icon: <Ticket className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'palette':
         return {
-          icon: <Palette className={`w-5 h-5 ${isDark ? 'text-rose-400' : 'text-rose-600'}`} />,
-          container: isDark ? 'bg-rose-950/50 border-rose-800/60' : 'bg-rose-50 border-rose-200 shadow-sm',
+          icon: <Palette className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'eye':
         return {
-          icon: <Eye className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />,
-          container: isDark ? 'bg-blue-950/50 border-blue-800/60' : 'bg-blue-50 border-blue-200 shadow-sm',
+          icon: <Eye className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'home':
         return {
-          icon: <Home className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />,
-          container: isDark ? 'bg-amber-950/50 border-amber-800/60' : 'bg-amber-50 border-amber-200 shadow-sm',
+          icon: <Home className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       default:
         return {
-          icon: <Cpu className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />,
-          container: isDark ? 'bg-emerald-950/50 border-emerald-800/60' : 'bg-emerald-50 border-emerald-200 shadow-sm',
+          icon: <Cpu className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
     }
   };
@@ -92,7 +92,7 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
     <section 
       id="projects" 
       className={`py-16 sm:py-24 border-t transition-colors scroll-mt-16 sm:scroll-mt-20 ${
-        isDark ? 'bg-[#0a0e14] border-slate-800/80' : 'bg-white border-slate-200'
+        isDark ? 'bg-[#0f0b1c] border-violet-950/80' : 'bg-white border-violet-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,17 +106,17 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-6"
         >
           <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs text-blue-500 font-semibold uppercase tracking-wider mb-2">
-              <span className="w-6 h-px bg-blue-500"></span>
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-violet-500 font-semibold uppercase tracking-wider mb-2">
+              <span className="w-6 h-px bg-violet-500"></span>
               <span>05 // FEATURED ENGINEERING PROJECTS</span>
             </div>
             <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
-              isDark ? 'text-slate-100' : 'text-slate-900'
+              isDark ? 'text-violet-50' : 'text-slate-900'
             }`}>
               Intelligent Software & RF Hardware Systems
             </h2>
             <p className={`text-sm sm:text-base mt-2 max-w-2xl ${
-              isDark ? 'text-slate-400' : 'text-slate-600'
+              isDark ? 'text-violet-200/70' : 'text-slate-600'
             }`}>
               From SDR anti-drone radar surveillance and Deep RL Lunar Landers to 97.8% accurate CNN diagnostics, empathetic NLP companions, and full-stack systems.
             </p>
@@ -124,15 +124,15 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
 
           {/* Filter Tabs */}
           <div className={`flex flex-wrap rounded-xl p-1 border text-xs font-mono gap-1 ${
-            isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-slate-100 border-slate-200'
+            isDark ? 'bg-[#18122e] border-violet-900/60' : 'bg-violet-50/70 border-violet-200'
           }`}>
             <button
               id="filter-projects-all"
               onClick={() => setFilter('all')}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === 'all'
-                  ? 'bg-blue-600 text-white font-medium shadow-sm'
-                  : isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-violet-500 text-white font-medium shadow-sm'
+                  : isDark ? 'text-violet-300/80 hover:text-violet-100' : 'text-slate-600 hover:text-violet-600'
               }`}
             >
               All Systems ({PROJECTS.length})
@@ -142,8 +142,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
               onClick={() => setFilter('ai-ml')}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === 'ai-ml'
-                  ? 'bg-violet-600 text-white font-medium shadow-sm'
-                  : isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-violet-500 text-white font-medium shadow-sm'
+                  : isDark ? 'text-violet-300/80 hover:text-violet-100' : 'text-slate-600 hover:text-violet-600'
               }`}
             >
               AI / ML & RL
@@ -153,8 +153,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
               onClick={() => setFilter('embedded-rf')}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === 'embedded-rf'
-                  ? 'bg-emerald-600 text-white font-medium shadow-sm'
-                  : isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-violet-500 text-white font-medium shadow-sm'
+                  : isDark ? 'text-violet-300/80 hover:text-violet-100' : 'text-slate-600 hover:text-violet-600'
               }`}
             >
               Embedded & RF
@@ -164,8 +164,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
               onClick={() => setFilter('software')}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === 'software'
-                  ? 'bg-indigo-600 text-white font-medium shadow-sm'
-                  : isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-violet-500 text-white font-medium shadow-sm'
+                  : isDark ? 'text-violet-300/80 hover:text-violet-100' : 'text-slate-600 hover:text-violet-600'
               }`}
             >
               Full-Stack & Systems
@@ -192,12 +192,12 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                   scaleOnHover={1.02}
                   className={`group h-full rounded-2xl border p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative overflow-hidden ${
                     isDark
-                      ? 'bg-[#0e1420]/85 border-slate-800/90 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10'
-                      : 'bg-white border-slate-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-100'
+                      ? 'bg-[#18122e]/90 border-violet-900/60 hover:border-violet-500/50 hover:shadow-2xl hover:shadow-violet-500/10'
+                      : 'bg-white border-violet-100 hover:border-violet-300 hover:shadow-2xl hover:shadow-violet-500/10'
                   }`}
                 >
                   {/* Top Accent Line on Hover */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-400 via-indigo-300 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                   <div>
                     {/* Header Icon + Meta Row */}
@@ -221,8 +221,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                             id={`project-github-${project.id}`}
                             className={`p-2 rounded-lg border transition-colors ${
                               isDark 
-                                ? 'border-slate-700/50 hover:border-slate-500 text-slate-400 hover:text-white' 
-                                : 'border-slate-200 hover:border-slate-400 text-slate-500 hover:text-slate-900'
+                                ? 'border-violet-900/60 hover:border-violet-500 text-violet-300 hover:text-white' 
+                                : 'border-violet-200 hover:border-violet-400 text-slate-500 hover:text-violet-600'
                             }`}
                             title="View GitHub Repository"
                           >
@@ -235,8 +235,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                           onClick={() => setSelectedProject(project)}
                           className={`p-2 rounded-lg border transition-colors cursor-pointer ${
                             isDark 
-                              ? 'border-slate-700/50 hover:border-blue-500 text-slate-400 hover:text-blue-400' 
-                              : 'border-slate-200 hover:border-blue-400 text-slate-500 hover:text-blue-600'
+                              ? 'border-violet-900/60 hover:border-violet-400 text-violet-300 hover:text-violet-200' 
+                              : 'border-violet-200 hover:border-violet-400 text-slate-500 hover:text-violet-600'
                           }`}
                           title="Open Technical Deep Dive"
                         >
@@ -246,12 +246,12 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                     </div>
 
                     {/* Category & Title */}
-                    <span className="text-[11px] font-mono font-medium text-blue-500 tracking-wide">
+                    <span className="text-[11px] font-mono font-medium text-violet-500 tracking-wide">
                       {project.categoryLabel}
                     </span>
 
-                    <h3 className={`text-xl font-bold tracking-tight mt-1 mb-2 group-hover:text-blue-500 transition-colors ${
-                      isDark ? 'text-slate-100' : 'text-slate-900'
+                    <h3 className={`text-xl font-bold tracking-tight mt-1 mb-2 group-hover:text-violet-500 transition-colors ${
+                      isDark ? 'text-violet-50' : 'text-slate-900'
                     }`}>
                       {project.title}
                     </h3>
@@ -260,17 +260,17 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                     {project.metric && (
                       <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono mb-3 font-semibold border ${
                         isDark 
-                          ? 'bg-blue-500/10 text-blue-300 border-blue-500/20' 
-                          : 'bg-blue-50 text-blue-700 border-blue-200'
+                          ? 'bg-violet-500/10 text-violet-300 border-violet-500/20' 
+                          : 'bg-violet-50 text-violet-700 border-violet-200'
                       }`}>
-                        <Zap className="w-3 h-3 text-blue-500" />
+                        <Zap className="w-3 h-3 text-violet-500" />
                         <span>{project.metric}</span>
                       </div>
                     )}
 
                     {/* Description */}
                     <p className={`text-xs sm:text-sm leading-relaxed mb-6 ${
-                      isDark ? 'text-slate-300' : 'text-slate-600'
+                      isDark ? 'text-violet-100/90' : 'text-slate-600'
                     }`}>
                       {project.description}
                     </p>
@@ -278,7 +278,7 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
 
                   {/* Bottom Section: Tech Stack Pills & Action */}
                   <div className={`space-y-4 pt-4 border-t ${
-                    isDark ? 'border-slate-800' : 'border-slate-100'
+                    isDark ? 'border-violet-900/40' : 'border-violet-100'
                   }`}>
                     {/* Tech Chips */}
                     <div className="flex flex-wrap gap-1.5">
@@ -287,8 +287,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                           key={i}
                           className={`text-[11px] font-mono px-2 py-0.5 rounded border transition-colors ${
                             isDark 
-                              ? 'bg-slate-900/90 border-slate-800 text-slate-300' 
-                              : 'bg-slate-100 border-slate-200 text-slate-700'
+                              ? 'bg-[#20183e] border-violet-900/60 text-violet-200' 
+                              : 'bg-violet-50/70 border-violet-200 text-slate-700'
                           }`}
                         >
                           {tech}
@@ -296,7 +296,7 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                       ))}
                       {project.techStack.length > 4 && (
                         <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                          isDark ? 'bg-slate-800/40 text-slate-400' : 'bg-slate-100 text-slate-500'
+                          isDark ? 'bg-violet-950 text-violet-300' : 'bg-violet-100 text-violet-600'
                         }`}>
                           +{project.techStack.length - 4} more
                         </span>
@@ -308,8 +308,8 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                       onClick={() => setSelectedProject(project)}
                       className={`w-full py-2.5 px-3 rounded-xl text-xs font-mono font-medium flex items-center justify-between border transition-all cursor-pointer ${
                         isDark
-                          ? 'bg-slate-900 hover:bg-blue-950/40 text-slate-300 hover:text-blue-300 border-slate-800 hover:border-blue-700/60'
-                          : 'bg-slate-50 hover:bg-blue-50 text-slate-700 hover:text-blue-700 border-slate-200 hover:border-blue-300 shadow-sm'
+                          ? 'bg-[#20183e] hover:bg-violet-950/60 text-violet-200 hover:text-white border-violet-900/60 hover:border-violet-500/50'
+                          : 'bg-violet-50/60 hover:bg-violet-100/80 text-violet-900 hover:text-violet-950 border-violet-200 hover:border-violet-300 shadow-sm'
                       }`}
                     >
                       <span>System Deep Dive</span>

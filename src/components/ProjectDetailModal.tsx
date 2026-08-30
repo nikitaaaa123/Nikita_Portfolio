@@ -36,48 +36,48 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     switch (iconType) {
       case 'radio':
         return {
-          icon: <Radio className={`w-5 h-5 ${isDark ? 'text-cyan-400' : 'text-cyan-600'}`} />,
-          container: isDark ? 'bg-cyan-950/50 border-cyan-800/60' : 'bg-cyan-50 border-cyan-200 shadow-sm',
+          icon: <Radio className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'brain':
         return {
           icon: <Brain className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
-          container: isDark ? 'bg-violet-950/50 border-violet-800/60' : 'bg-violet-50 border-violet-200 shadow-sm',
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'rocket':
         return {
-          icon: <Rocket className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />,
-          container: isDark ? 'bg-amber-950/50 border-amber-800/60' : 'bg-amber-50 border-amber-200 shadow-sm',
+          icon: <Rocket className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'bot':
         return {
-          icon: <Bot className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />,
-          container: isDark ? 'bg-emerald-950/50 border-emerald-800/60' : 'bg-emerald-50 border-emerald-200 shadow-sm',
+          icon: <Bot className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'ticket':
         return {
-          icon: <Ticket className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />,
-          container: isDark ? 'bg-blue-950/50 border-blue-800/60' : 'bg-blue-50 border-blue-200 shadow-sm',
+          icon: <Ticket className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'palette':
         return {
-          icon: <Palette className={`w-5 h-5 ${isDark ? 'text-rose-400' : 'text-rose-600'}`} />,
-          container: isDark ? 'bg-rose-950/50 border-rose-800/60' : 'bg-rose-50 border-rose-200 shadow-sm',
+          icon: <Palette className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'eye':
         return {
-          icon: <Eye className={`w-5 h-5 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />,
-          container: isDark ? 'bg-blue-950/50 border-blue-800/60' : 'bg-blue-50 border-blue-200 shadow-sm',
+          icon: <Eye className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       case 'home':
         return {
-          icon: <Home className={`w-5 h-5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />,
-          container: isDark ? 'bg-amber-950/50 border-amber-800/60' : 'bg-amber-50 border-amber-200 shadow-sm',
+          icon: <Home className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
       default:
         return {
-          icon: <Cpu className={`w-5 h-5 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`} />,
-          container: isDark ? 'bg-emerald-950/50 border-emerald-800/60' : 'bg-emerald-50 border-emerald-200 shadow-sm',
+          icon: <Cpu className={`w-5 h-5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} />,
+          container: isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50 border-violet-200 shadow-sm',
         };
     }
   };
@@ -89,8 +89,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
       <div 
         className={`relative w-full max-w-3xl rounded-2xl border p-6 sm:p-8 shadow-2xl transition-all max-h-[90vh] overflow-y-auto ${
           isDark 
-            ? 'bg-[#0e1420] border-slate-700/80 text-slate-200' 
-            : 'bg-white border-slate-200 text-slate-800'
+            ? 'bg-[#18122e] border-violet-900/80 text-violet-100' 
+            : 'bg-white border-violet-100 text-slate-800'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -99,8 +99,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           onClick={onClose}
           className={`absolute top-5 right-5 p-2 rounded-xl border transition-all cursor-pointer ${
             isDark 
-              ? 'border-slate-700/50 hover:bg-slate-800 text-slate-400 hover:text-white' 
-              : 'border-slate-200 hover:bg-slate-100 text-slate-500 hover:text-slate-900'
+              ? 'border-violet-900/60 hover:bg-[#20183e] text-violet-300 hover:text-white' 
+              : 'border-violet-200 hover:bg-violet-50 text-slate-500 hover:text-violet-600'
           }`}
           aria-label="Close modal"
         >
@@ -113,17 +113,17 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             {domainIconData.icon}
           </div>
           <div>
-            <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full border ${
+            <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full border font-semibold ${
               isDark 
-                ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' 
-                : 'bg-blue-50 text-blue-700 border-blue-200'
+                ? 'bg-violet-500/10 text-violet-300 border-violet-500/30' 
+                : 'bg-violet-50 text-violet-700 border-violet-200'
             }`}>
               {project.categoryLabel}
             </span>
-            <h3 className={`text-2xl sm:text-3xl font-extrabold mt-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h3 className={`text-2xl sm:text-3xl font-extrabold mt-2 ${isDark ? 'text-violet-50' : 'text-slate-900'}`}>
               {project.title}
             </h3>
-            <p className={`text-sm font-medium mt-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            <p className={`text-sm font-medium mt-1 ${isDark ? 'text-violet-200/70' : 'text-slate-600'}`}>
               {project.subtitle}
             </p>
           </div>
@@ -133,10 +133,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {project.metric && (
           <div className={`mt-4 p-3 rounded-xl border flex items-center gap-2 text-xs font-mono ${
             isDark 
-              ? 'bg-blue-950/30 border-blue-800/50 text-blue-300' 
-              : 'bg-blue-50 border-blue-200 text-blue-800'
+              ? 'bg-[#20183e] border-violet-900/60 text-violet-200' 
+              : 'bg-violet-50 border-violet-200 text-violet-800'
           }`}>
-            <Zap className="w-4 h-4 text-blue-500 shrink-0" />
+            <Zap className="w-4 h-4 text-violet-500 shrink-0" />
             <span>Key Benchmark: <strong className={isDark ? 'text-white font-bold' : 'text-slate-900 font-bold'}>{project.metric}</strong></span>
           </div>
         )}
@@ -145,11 +145,11 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         <div className="mt-6 space-y-4">
           <div>
             <h4 className={`text-xs font-mono uppercase tracking-wider font-semibold mb-2 ${
-              isDark ? 'text-slate-400' : 'text-slate-500'
+              isDark ? 'text-violet-300' : 'text-slate-500'
             }`}>
               System Architecture & Methodology
             </h4>
-            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-violet-100/90' : 'text-slate-700'}`}>
               {project.longDescription}
             </p>
           </div>
@@ -157,32 +157,32 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           {/* Architecture Pipeline Block */}
           {project.architecture && (
             <div className={`p-4 rounded-xl border space-y-2.5 font-mono text-xs ${
-              isDark ? 'bg-slate-900/90 border-slate-800' : 'bg-slate-50 border-slate-200'
+              isDark ? 'bg-[#20183e] border-violet-900/60' : 'bg-violet-50/50 border-violet-200'
             }`}>
               <div className={`text-[11px] font-semibold uppercase flex items-center gap-1.5 ${
-                isDark ? 'text-slate-400' : 'text-slate-600'
+                isDark ? 'text-violet-300' : 'text-violet-700'
               }`}>
-                <Activity className="w-3.5 h-3.5 text-blue-500" />
+                <Activity className="w-3.5 h-3.5 text-violet-500" />
                 <span>Data & Signal Flow Pipeline</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1">
                 <div className={`p-2.5 rounded-lg border ${
-                  isDark ? 'bg-slate-800/50 border-slate-700/50' : 'bg-white border-slate-200 shadow-sm'
+                  isDark ? 'bg-[#18122e] border-violet-900/60' : 'bg-white border-violet-200 shadow-sm'
                 }`}>
-                  <div className="text-[10px] text-blue-500 font-bold mb-1">1. INGESTION</div>
-                  <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{project.architecture.inputs}</div>
+                  <div className="text-[10px] text-violet-500 font-bold mb-1">1. INGESTION</div>
+                  <div className={`text-[11px] ${isDark ? 'text-violet-200' : 'text-slate-700'}`}>{project.architecture.inputs}</div>
                 </div>
                 <div className={`p-2.5 rounded-lg border ${
-                  isDark ? 'bg-slate-800/50 border-slate-700/50' : 'bg-white border-slate-200 shadow-sm'
+                  isDark ? 'bg-[#18122e] border-violet-900/60' : 'bg-white border-violet-200 shadow-sm'
                 }`}>
                   <div className="text-[10px] text-violet-500 font-bold mb-1">2. PROCESSING</div>
-                  <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{project.architecture.processing}</div>
+                  <div className={`text-[11px] ${isDark ? 'text-violet-200' : 'text-slate-700'}`}>{project.architecture.processing}</div>
                 </div>
                 <div className={`p-2.5 rounded-lg border ${
-                  isDark ? 'bg-slate-800/50 border-slate-700/50' : 'bg-white border-slate-200 shadow-sm'
+                  isDark ? 'bg-[#18122e] border-violet-900/60' : 'bg-white border-violet-200 shadow-sm'
                 }`}>
-                  <div className="text-[10px] text-emerald-500 font-bold mb-1">3. ACTION / OUTPUT</div>
-                  <div className={`text-[11px] ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{project.architecture.outputs}</div>
+                  <div className="text-[10px] text-violet-500 font-bold mb-1">3. ACTION / OUTPUT</div>
+                  <div className={`text-[11px] ${isDark ? 'text-violet-200' : 'text-slate-700'}`}>{project.architecture.outputs}</div>
                 </div>
               </div>
             </div>
@@ -191,24 +191,24 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           {/* Key Engineering Highlights */}
           <div className="pt-2">
             <h4 className={`text-xs font-mono uppercase tracking-wider font-semibold mb-2.5 ${
-              isDark ? 'text-slate-400' : 'text-slate-500'
+              isDark ? 'text-violet-300' : 'text-slate-500'
             }`}>
               Engineering Achievements & Implementation
             </h4>
             <div className="space-y-2">
               {project.highlights.map((h, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>{h}</span>
+                  <CheckCircle2 className="w-4 h-4 text-violet-500 shrink-0 mt-0.5" />
+                  <span className={isDark ? 'text-violet-100' : 'text-slate-700'}>{h}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Tech Stack Chips */}
-          <div className={`pt-4 border-t ${isDark ? 'border-slate-800' : 'border-slate-200'}`}>
+          <div className={`pt-4 border-t ${isDark ? 'border-violet-900/40' : 'border-violet-100'}`}>
             <h4 className={`text-xs font-mono uppercase tracking-wider font-semibold mb-2 ${
-              isDark ? 'text-slate-400' : 'text-slate-500'
+              isDark ? 'text-violet-300' : 'text-slate-500'
             }`}>
               Hardware, SDKs & Libraries
             </h4>
@@ -217,7 +217,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 <span
                   key={idx}
                   className={`text-xs font-mono px-2.5 py-1 rounded-md border ${
-                    isDark ? 'bg-slate-900 border-slate-700 text-blue-300' : 'bg-blue-50 border-blue-200 text-blue-700'
+                    isDark ? 'bg-[#20183e] border-violet-900/60 text-violet-200' : 'bg-violet-50 border-violet-200 text-violet-700'
                   }`}
                 >
                   {tech}
@@ -229,7 +229,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
         {/* Modal Footer Actions */}
         <div className={`mt-8 pt-4 border-t flex flex-wrap items-center justify-between gap-3 ${
-          isDark ? 'border-slate-800' : 'border-slate-200'
+          isDark ? 'border-violet-900/40' : 'border-violet-100'
         }`}>
           <div className="flex items-center gap-3">
             {project.githubUrl ? (
@@ -239,8 +239,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 rel="noreferrer"
                 className={`px-4 py-2 rounded-xl text-xs font-mono flex items-center gap-2 border transition-all ${
                   isDark 
-                    ? 'bg-slate-900 border-slate-700 text-white hover:bg-slate-800 hover:border-blue-500' 
-                    : 'bg-white border-slate-200 text-slate-900 hover:bg-slate-50 shadow-sm'
+                    ? 'bg-[#20183e] border-violet-900/60 text-white hover:border-violet-400' 
+                    : 'bg-white border-violet-200 text-slate-900 hover:bg-violet-50 shadow-sm'
                 }`}
               >
                 <Github className="w-4 h-4" />
@@ -248,7 +248,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               </a>
             ) : (
               <span className={`px-3 py-1.5 rounded-xl text-xs font-mono border ${
-                isDark ? 'bg-slate-900/60 border-slate-800 text-slate-400' : 'bg-slate-100 border-slate-200 text-slate-600'
+                isDark ? 'bg-[#20183e] border-violet-900/60 text-violet-300' : 'bg-violet-50 border-violet-200 text-slate-600'
               }`}>
                 Hardware & Embedded Lab Prototype
               </span>
@@ -257,7 +257,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md cursor-pointer"
+            className="px-5 py-2 rounded-xl text-xs font-semibold bg-violet-500 hover:bg-violet-600 text-white transition-all shadow-md shadow-violet-500/20 cursor-pointer"
           >
             Close Inspector
           </button>

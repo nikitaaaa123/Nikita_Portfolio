@@ -70,11 +70,11 @@ export const CustomCursor: React.FC = () => {
         animate={{
           scale: isClicking ? 0.75 : isHovered ? 1.8 : 1,
           opacity: isHovered ? 0.8 : 0.45,
-          borderColor: isHovered ? '#3b82f6' : 'rgba(148, 163, 184, 0.6)',
-          backgroundColor: isHovered ? 'rgba(59, 130, 246, 0.12)' : 'transparent',
+          borderColor: isHovered ? '#8b5cf6' : 'rgba(167, 139, 250, 0.6)',
+          backgroundColor: isHovered ? 'rgba(139, 92, 246, 0.15)' : 'transparent',
         }}
         transition={{ duration: 0.15 }}
-        className="w-8 h-8 rounded-full border border-blue-400/60 pointer-events-none"
+        className="w-8 h-8 rounded-full border border-violet-400/60 pointer-events-none"
       />
 
       {/* Center Precision Dot */}
@@ -90,7 +90,7 @@ export const CustomCursor: React.FC = () => {
           opacity: isHovered ? 0 : 1,
         }}
         transition={{ duration: 0.1 }}
-        className="w-2 h-2 rounded-full bg-blue-500 pointer-events-none shadow-sm shadow-blue-500/50"
+        className="w-2 h-2 rounded-full bg-violet-500 pointer-events-none shadow-sm shadow-violet-500/50"
       />
     </div>
   );

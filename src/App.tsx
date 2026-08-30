@@ -19,10 +19,10 @@ import { ResumeModal } from './components/ResumeModal';
 import { CustomCursor } from './components/CustomCursor';
 
 export default function App() {
-  // Dark mode by default, state-managed
+  // Lavender & White theme by default, state-managed
   const [theme, setTheme] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('nikita_portfolio_theme');
-    return (saved === 'light' || saved === 'dark') ? saved : 'dark';
+    return (saved === 'light' || saved === 'dark') ? saved : 'light';
   });
 
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
@@ -56,12 +56,12 @@ export default function App() {
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
-      document.body.classList.remove('bg-white', 'text-slate-900');
-      document.body.classList.add('bg-[#0a0e14]', 'text-slate-100');
+      document.body.classList.remove('bg-white', 'text-slate-900', 'bg-[#f5f3ff]');
+      document.body.classList.add('bg-[#0e0c1a]', 'text-violet-50');
     } else {
       document.documentElement.classList.remove('dark');
-      document.body.classList.remove('bg-[#0a0e14]', 'text-slate-100');
-      document.body.classList.add('bg-[#fcfdfd]', 'text-slate-900');
+      document.body.classList.remove('bg-[#0e0c1a]', 'text-violet-50', 'bg-[#0a0e14]');
+      document.body.classList.add('bg-[#ffffff]', 'text-slate-900');
     }
   }, [theme]);
 
@@ -183,8 +183,8 @@ export default function App() {
 
   return (
     <div 
-      className={`min-h-screen w-full font-sans transition-colors duration-300 relative selection:bg-blue-500 selection:text-white ${
-        isDark ? 'bg-[#0a0e14] text-slate-100' : 'bg-[#fcfdfd] text-slate-900'
+      className={`min-h-screen w-full font-sans transition-colors duration-300 relative selection:bg-violet-500 selection:text-white ${
+        isDark ? 'bg-[#0e0c1a] text-violet-50' : 'bg-[#ffffff] text-slate-900'
       }`}
     >
       {/* Custom Precision Follower Cursor */}

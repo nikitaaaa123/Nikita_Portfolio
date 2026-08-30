@@ -28,9 +28,9 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
 
   return (
     <div className={`relative inline-block ${className}`}>
-      {/* Styled Gradient Border Frame */}
-      <div className={`rounded-full bg-gradient-to-tr from-blue-500 via-violet-500 to-emerald-400 ${ringSizes[size]} shadow-md`}>
-        <div className={`rounded-full overflow-hidden bg-slate-900 flex items-center justify-center ${sizeClasses[size]} relative`}>
+      {/* Styled Lavender Gradient Border Frame */}
+      <div className={`rounded-full bg-gradient-to-tr from-violet-500 via-purple-400 to-indigo-400 ${ringSizes[size]} shadow-md shadow-violet-500/20`}>
+        <div className={`rounded-full overflow-hidden bg-white dark:bg-[#18142e] flex items-center justify-center ${sizeClasses[size]} relative`}>
           <img
             src="/final_prof_pic.png"
             alt="Nikita Bhansali"
@@ -46,8 +46,8 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
           className="absolute bottom-0 right-0 flex h-3 w-3"
           title="Active & Available"
         >
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-slate-900"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-500 border-2 border-white dark:border-[#0e0c1a]"></span>
         </span>
       )}
     </div>
